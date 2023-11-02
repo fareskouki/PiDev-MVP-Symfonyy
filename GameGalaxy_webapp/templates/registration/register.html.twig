@@ -1,0 +1,95 @@
+{% extends 'FRONT/base.html.twig' %}
+{% block title %}INSCRIPTION
+{% endblock %}
+{% block body %}
+
+
+	<!-- prealoader start  -->
+	<div class="preloader">
+		<div class="spinner">
+			<div class="dot1"></div>
+			<div class="dot2"></div>
+		</div>
+	</div>
+	<!-- prealoader end -->
+
+	<!-- scroll-to-top start -->
+	<div class="scroll-to-top">
+		<span class="scroll-icon">
+			<i class="las la-arrow-up"></i>
+		</span>
+	</div>
+	<!-- scroll-to-top end -->
+	<!-- page-wrapper start -->
+
+
+	<section class="pt-120 pb-120 position-relative overflow-hidden">
+		<div class="contact-left-el"><img src="..\FRONT\assets\images\elements\contact-left-el.png" alt="image"></div>
+		<div class="contact-right-el"><img src="..\FRONT\assets\images\elements\contact-right-el.png" alt="image"></div>
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-8">
+					<div class="section-header text-center has--bg">
+						<div class="header-image"><img src="..\FRONT\assets\images\elements\header-el.png" alt="image"></div>
+						<h2 class="section-title">Connexion</h2>
+
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="contact-form-wrapper">
+						{{ form_start(registrationForm, {'attr' : {'novalidate' : 'novalidate'}}) }}
+						<form class="contact-form" id="contact_form_submit">
+							<div class="form-group">
+								{{ form_row(registrationForm.email, {'attr' : {'class' : ' form-control style--two'}}) }}
+							</div>
+							<div class="form-group">
+								
+								{{form_row(registrationForm.pseudo, {'attr' : {'class' : 'form-control style--two'}}) }}
+							</div>
+							
+
+							<div class="form-group">
+								
+
+								{{ form_row(registrationForm.plainPassword, {'attr' : {'class' : 'form-control style--two'}}) }}
+							</div>
+							
+							<div class="form-group">
+								
+
+								{{ form_row(registrationForm.addresse, {'attr' : {'class' : 'form-control style--two'}}) }}
+							</div>
+							
+							<div class="form-group">
+								
+
+								{{ form_row(registrationForm.date_naissance) }}
+							</div>
+							
+							<div class="form-group">
+								<div class="custom-control custom-checkbox mr-sm-2">
+									
+									{{ form_row(registrationForm.agreeTerms,{'label':"J'accepte les conditions d'utilisation de GameGalaxy"},{'class':'custom-control-input'} ) }}
+									
+								</div>
+							</div>
+							<div>
+								<button type="submit" class="submit-btn">S'inscrire</button>
+								<p class="sign-up">Pas de compte?
+									<a href="{{ path('app_register') }} ">S'inscrire</a>
+										
+								</p>
+							</div>
+							{{ form_rest(registrationForm) }} 
+						</form>
+						{{ form_end(registrationForm) }}
+						
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+{% endblock %}

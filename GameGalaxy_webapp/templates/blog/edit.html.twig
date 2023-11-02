@@ -1,0 +1,34 @@
+{% set Title = 'Modifier le blog'  %} 
+{% extends 'BACK/base.html.twig' %} 
+{% block body %}
+<div class="card-body">
+    <div class="d-flex justify-content-center">
+        {{ form_start(blog, {'attr': {'novalidate': 'novalidate', 'class': 'col-md-6'}}) }}
+        <div class="form-group">
+            {{ form_label(blog.title, 'Sujet', {'label_attr': {'class': 'font-weight-bold'}}) }}
+            {{ form_widget(blog.title, {'attr': {'class': 'form-control', 'placeholder': 'Entrez le sujet du blog'}}) }}
+            <div class="text-danger">{{ form_errors(blog.title, {'attr': {'class': 'invalid-feedback'}}) }}</div>
+        </div>
+        <div class="form-group">
+            {{ form_label(blog.content, 'Contenu', {'label_attr': {'class': 'font-weight-bold'}}) }}
+            {{ form_widget(blog.content, {'attr': {'class': 'form-control', 'placeholder': 'Entrez une description du blog'}}) }}
+            <div class="text-danger">{{ form_errors(blog.content, {'attr': {'class': 'invalid-feedback'}}) }}</div>
+        </div>
+        <div class="form-group">
+            {{ form_label(blog.image, 'Photo principale', {'label_attr': {'class': 'font-weight-bold'}}) }}
+            {{ form_widget(blog.image, {'attr': {'class': 'form-control'}}) }}
+            <div class="text-danger">{{ form_errors(blog.image, {'attr': {'class': 'invalid-feedback'}}) }}</div>
+        </div>
+        {{ form_rest(blog)}}
+        {{ form_end(blog) }}
+    </div>
+    
+    <div class="card-footer text-center py-3">
+											<div class="small">
+												<a href="{{ path('app_blog_index') }}">Retour à la liste</a>
+											</div>
+										</div>
+</div>
+
+
+{% endblock %}

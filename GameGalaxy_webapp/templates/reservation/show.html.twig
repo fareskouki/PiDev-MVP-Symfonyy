@@ -1,0 +1,48 @@
+{% extends 'BACK/base.html.twig' %}
+
+{% block title %}
+	Détails de la Réservation
+{% endblock %}
+
+{% block body %}
+	<div id="layoutSidenav_content">
+		<main>
+			<div class="card-body">
+				<table class="table">
+					<tbody>
+						<tr>
+							<th>Id</th>
+							<td>{{ reservation.id }}</td>
+						</tr>
+						
+						<tr>
+							<th>Date</th>
+							<td>{{ reservation.date ? reservation.date|date('Y-m-d H:i:s') : '' }}</td>
+						</tr>
+						<tr>
+							<th>Description</th>
+							<td>{{ reservation.getIdMembre() }}</td>
+						</tr>
+						<tr>
+							<th>Duree</th>
+							<td>{{ reservation.getIdEvenement() }}</td>
+						</tr>
+						
+					</tbody>
+				</table>
+
+
+				<div class="row mb-3">
+					<div class="col-md-6">
+						<a class="btn btn-primary btn-block" href="{{ path('app_reservation_edit', {'id': reservation.id}) }}">Modifier</a>
+					</div>
+					<div class="col-md-6">
+						{{ include('reservation/_delete_form.html.twig', {'class':'btn btn-primary btn-block'}) }}
+					</div>
+					<div class="col-md-6">
+						<a href="{{ path('app_back_reservation_index') }}">Retour à la liste</a>
+					</div>
+				</div>
+			</div>
+		</main>
+	{% endblock %}

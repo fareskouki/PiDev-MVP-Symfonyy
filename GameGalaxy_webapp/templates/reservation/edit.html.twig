@@ -1,0 +1,55 @@
+
+  {% set Title = 'Réservations' %} 
+{% extends 'BACK/base.html.twig' %}
+
+{% block title %}
+	Modifier la Réservation
+{% endblock %}
+
+{% block body %}
+						<div class="container">
+							<div class="row justify-content-center">
+								<div class="col-lg-7">
+									<div class="card shadow-lg border-0 rounded-lg mt-5">
+										<div class="card-header">
+											<h3 class="text-center font-weight-light my-4">Modifier la Réservation</h3>
+										</div>
+										<div class="card-body">
+											{{form_start(form,{'attr':{'novalidate':'novalidate'}})}}
+											<div class="row mb-3">
+												<div class="col-md-6">
+													<div class="form-floating mb-3 mb-md-0">
+														{{form_widget(form.id_membre,{'attr':{'class':'form-control'}})}}
+														<label for="inputFirstName">ID Membre</label>
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-floating">
+														{{form_widget(form.id_evenement,{'attr':{'class':'form-control'}})}}
+														<label for="inputLastName">ID Reservation</label>
+													</div>
+												</div>
+											</div>
+											<div class="mt-4 mb-0">
+												<div class="d-grid">
+													{{ include('reservation/_form.html.twig', {'button_label': 'Modifier'}) }}
+												</div>
+											</div>
+											<div class="mt-4 mb-0">
+												<div class="d-grid">
+													{{ include('reservation/_delete_form.html.twig') }}
+												</div>
+											</div>
+											{{form_end(form)}}
+										</div>
+										<div class="card-footer text-center py-3">
+											<div class="small">
+												<a href="{{ path('app_back_reservation_index') }}">Retour à la liste</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+		{% endblock %}

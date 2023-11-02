@@ -1,0 +1,71 @@
+{% extends 'Back/base.html.twig' %}
+
+{% block title %}
+Produits
+{% endblock %}
+
+{% block body %}
+<br>
+	<div class="container"><br><br>
+		<h2 class="text-center mt-5 mb-3">Gestionnaire de Produits</h2>
+
+		<div class="card">
+			<div class="card-header">
+				<a class="btn btn-outline-primary" href="{{ path('app_produit_new') }}">
+					Ajouter noveau produit
+				</a>
+				 <a class="btn btn-outline-primary" href="{{ path('app_produit_tri_par_nom') }}"> Trier par nom</a>
+			</div>
+			<div class="container m-20">
+				<div class="card-body">
+
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Nom Produit</th>
+								<th>Prix</th>
+								<th>Description</th>
+								<th>Stock</th>
+								<th>Categorie</th>
+								<th>Rating</th>
+								<th>Image</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for produit in produits %}
+								<tr>
+									<td>{{ produit.id }}</td>
+									<td>{{ produit.nomProduit }}</td>
+									<td>{{ produit.prix }}</td>
+									<td>{{ produit.description }}</td>
+									<td>{{ produit.stock }}</td>
+									<td>{{ produit.getIdCategorie }}</td>
+									<td>{{ produit.rating }}</td>
+
+									<td><img  src="{{asset(uploads_dir ~ produit.img)}}" alt="photo" width="300" height="200"></td>
+
+									<td>
+									<div class="mt-4 mb-0">
+											<div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+												<a href="{{ path('app_produit_show', {'id': produit.id}) }}" class="btn btn-primary">Détails</a>
+												<a href="{{ path('app_produit_edit', {'id': produit.id}) }}" class="btn btn-secondary">Modifier</a>
+												{{ include('produit/_delete_form.html.twig') }}
+
+											</div>
+
+
+										</div>
+											
+									</td>
+								</tr>
+
+							{% endfor %}
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+		</div>
+	{% endblock %}

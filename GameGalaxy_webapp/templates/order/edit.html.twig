@@ -1,0 +1,14 @@
+{% extends 'FRONT/base.html.twig' %}
+
+{% block title %}Edit Order{% endblock %}
+
+{% block body %}
+    <section class="bg-light p-3">
+    </section>
+    </br></br></br>
+    <h1>Edit Order</h1>
+    </br>
+    {{ include('order/_form.html.twig', {'button_label': 'Update'}) }}
+
+    {{ include('order/_delete_form.html.twig') }}
+{% endblock %}

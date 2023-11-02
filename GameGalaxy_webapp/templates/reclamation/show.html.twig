@@ -1,0 +1,59 @@
+{% extends 'BACK/base.html.twig' %}
+
+{% block title %}
+	Détails de la reclamation
+{% endblock %}
+
+{% block body %}
+	<div id="layoutSidenav_content">
+		<main>
+			<div class="card-body">
+				<table class="table">
+					<tbody>
+						<tr>
+							<th>Id</th>
+							<td>{{ reclamation.id }}</td>
+						</tr>
+						<tr>
+							<th>Titre</th>
+							<td>{{ reclamation.titreRec }}</td>
+						</tr>
+                        <tr>
+							<th>Type</th>
+							<td>{{ reclamation.typeRec }}</td>
+						</tr>
+						<tr>
+							<th>Date</th>
+							<td>{{ reclamation.dateRec ? reclamation.dateRec|date('Y-m-d') : '' }}</td>
+						</tr>
+						
+						<tr>
+							<th>Conetnu</th>
+							<td>{{ reclamation.contenuRec }}</td>
+						</tr>
+						<tr>
+							<th>Status</th>
+							<td>{{ reclamation.statutRec }}</td>
+						</tr>
+
+						<tr>
+							<th>Commande</th>
+                			<td><a href="{{ path('app_order_show_back', {'id': reclamation.commande}) }} ">{{ reclamation.commande.status }}</a></td>                
+					</tbody>
+				</table>
+
+
+				<div class="row mb-3">
+					{# <div class="col-md-6">
+						<a class="btn btn-primary btn-block" href="{{ path('app_reclamation_edit', {'id': reclamation.id}) }}">Modifier</a>
+					</div> #}
+					<div class="col-md-6">
+						{{ include('reclamation/_delete_form.html.twig', {'class':'btn btn-primary btn-block'}) }}
+					</div>
+					<div class="col-md-6">
+						<a href="{{ path('app_reclamation_index') }}">Retour à la liste</a>
+					</div>
+				</div>
+			</div>
+		</main>
+	{% endblock %}

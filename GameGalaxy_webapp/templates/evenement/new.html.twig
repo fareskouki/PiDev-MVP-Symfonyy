@@ -1,0 +1,119 @@
+{% set Title = 'Evenements' %}
+{% extends 'BACK/base.html.twig' %}
+
+{% block title %}
+	Evenements
+{% endblock %}
+
+{% block body %}
+
+	
+						<div class="container">
+							<div class="row justify-content-center">
+
+								<div class="col-lg-7">
+									<div class="card shadow-lg border-0 rounded-lg mt-5">
+										<div class="card-header">
+											<h3 class="text-center font-weight-light my-4">Créer évènement</h3>
+										</div>
+										<div class="card-body">
+											{{form_start(form,{'attr':{'novalidate':'novalidate'}})}}
+											<div class="row mb-3">
+												<div class="col-md-6">
+													<div class="form-floating mb-3 mb-md-0">
+														{{form_widget(form.nom,{'attr':{'class':'form-control'}})}}
+														{% if form_errors(form.nom) %}
+															<div class="alert alert-danger">
+																{{form_errors(form.nom)}}
+															</div>
+														{% endif %}
+														<label for="inputFirstName">Nom</label>
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-floating ">
+
+														Date et Heure
+														{{ form_widget(form.date) }}
+
+
+														{% if form_errors(form.date) %}
+															<div class="alert alert-danger">
+																{{form_errors(form.date)}}
+															</div>
+														{% endif %}
+
+													</div>
+												</div>
+											</div>
+											<div class="form-floating mb-3">
+												{{form_widget(form.description,{'attr':{'class':'form-control'}})}}
+												{% if form_errors(form.description) %}
+													<div class="alert alert-danger">
+														{{form_errors(form.description)}}
+													</div>
+												{% endif %}
+												<label for="inputEmail">Description</label>
+											</div>
+											<div class="row mb-3">
+												<div class="col-md-6">
+													<div class="form-floating mb-3 mb-md-0">
+														{{form_widget(form.duree,{'attr':{'class':'form-control'}})}}
+														{% if form_errors(form.duree) %}
+															<div class="alert alert-danger">
+																{{form_errors(form.duree)}}
+															</div>
+														{% endif %}
+														<label for="inputFirstName">Duree</label>
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-floating">
+														{{form_widget(form.capacite,{'attr':{'class':'form-control'}})}}
+														{% if form_errors(form.capacite) %}
+															<div class="alert alert-danger">
+																{{form_errors(form.capacite)}}
+															</div>
+														{% endif %}
+														<label for="inputLastNsame">Capacite</label>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="form-floating mb-3">
+													{{ form_widget(form.image,{'attr':{'class':'form-control'}}) }}
+												</div>
+											</div>	
+											<div class="row mb-3">
+												<div class="col-md-6">
+													<div class="form-floating mb-3 mb-md-0">
+														{{form_widget(form.type,{'attr':{'class':'form-control'}})}}
+														
+														{% if form_errors(form.type) %}
+															<div class="alert alert-danger">
+																{{form_errors(form.type)}}
+															</div>
+														{% endif %}
+														<label for="inputFirstName">Type</label>
+													</div>
+												</div>
+
+											</div>
+											<div class="mt-4 mb-0">
+												<div class="d-grid">
+													{{ include('evenement/_form.html.twig', {'button_label': 'Valider'}) }}
+												</div>
+											</div>
+											{{form_end(form)}}
+										</div>
+										<div class="card-footer text-center py-3">
+											<div class="small">
+												<a href="{{ path('app_evenement_index') }}">Retour à la liste</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+		{% endblock %}

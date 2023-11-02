@@ -1,0 +1,76 @@
+  {% set Title = 'Réservations' %} 
+{% extends 'BACK/base.html.twig' %}
+
+{% block title %}
+	Réservations
+{% endblock %}
+
+{% block body %}
+	{% if not reservations is empty %}
+					<div class="card-header">
+			<i class="fas fa-table me-1"></i>
+			{{ Title }}
+		</div>
+					<div class="card-body">
+						<table id="datatablesSimple">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>ID Membre</th>
+									<th>ID Evenement</th>
+									<th>Date</th>
+									<th>Actions</th>
+								</tr>
+							</thead>
+							<tfoot>
+								<tr>
+									<th>Id</th>
+									<th>ID Membre</th>
+									<th>ID Evenement</th>
+									<th>Date</th>
+									<th>Actions</th>
+								</tr>
+							</tfoot>
+							<tbody>
+								{% for reservation in reservations %}
+									<tr>
+										<td>{{ reservation.id }}</td>
+										<td>{{ reservation.getIdMembre() }}</td>
+										<td>{{ reservation.getIdEvenement() }}</td>
+										<td>{{ reservation.date ? reservation.date|date('Y-m-d H:i:s') : '' }}</td>
+										<td>
+
+
+											<div class="mt-4 mb-0">
+												<div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+													<a href="{{ path('app_reservation_show', {'id': reservation.id}) }}" class="btn btn-primary">Détails</a>
+													<a href="{{ path('app_reservation_edit', {'id': reservation.id}) }}" class="btn btn-secondary">Modifier</a>
+													{{ include('reservation/_delete_form.html.twig') }}
+
+												</div>
+											</div>
+
+										</td>
+									</tr>
+								</div>
+							</tbody>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		<a class="btn btn-success" href="{{ path('app_reservation_new') }}">Créer une réservation</a>
+	{% else %}
+		<div class="card-header">
+		<div class="alert alert-danger" role="alert">
+			<h3>Il n'y a pas encore de réservations.</h3>
+		</div>
+			<a class="btn btn-success" href="{{ path('app_reservation_new') }}">Créer une réservation</a>
+		<div class="small">
+				<a href="{{ path('app_back_reservation_index') }}">Retour à la liste</a>
+		</div>
+</div>
+
+	{% endif %}
+	
+	{% endblock %}

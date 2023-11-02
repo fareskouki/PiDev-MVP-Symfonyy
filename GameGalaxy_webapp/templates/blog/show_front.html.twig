@@ -1,0 +1,68 @@
+{% extends 'FRONT/base.html.twig' %}
+
+{% block body %}
+
+<section class="blog-details pb-120">
+  <div class="container">
+    <div class="row justify-content-center border-bottom pb-5">
+      <div class="col-12">
+        <div class="blog-details__header"></div>
+      </div>
+      <div class="col-lg-10 mt-50">
+        <div class="blog-details__content">
+          <h2 class="blog-details__title">{{ blog.title }}</h2>
+          <div class="img-holder text-center mt-5 mb-5">
+            <img src="{{ asset('uploads/' ~ blog.image) }}" alt="{{ blog.image }}">
+            <p style="font-size: 40px; font-weight: bold; text-align: center; color: red;">{{ blog.title }}</p>
+          </div>
+          <p style="font-size: 60px; font-weight: bold; text-align: center; color: green;">{{ blog.content }}</p>
+
+          <h1 style="font-size: 30px; font-weight: bold; text-align: left; color: white;">Liste des commentaires </h1>
+
+          <div class="blog-details__comments">
+            <table class="table mt-4">
+              <thead>
+                <tr>
+                  <th scope="col" style="font-weight: bold; color: white; background-color: #007bff;">Commentaire</th>
+                  <th scope="col" style="font-weight: bold; color: white; background-color: #007bff;">Date de création</th>
+                  <th scope="col" style="font-weight: bold; color: white; background-color: #007bff;">Supprimer</th>
+                  <th scope="col" style="font-weight: bold; color: white; background-color: #007bff;">ID User</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for comment in blog.comments %}
+                  <tr>
+                    <td style="font-weight: bold; color: white">{{ comment.content }}</td>
+                    <td style="font-weight: bold; color: white">{{ comment.createdAt | date('Y-m-d') }}</td>
+                    <td>                     
+                     <a class="btn btn-danger" href="{{path('app_comment_delete',{ id:comment.id})}}"> 
+                      <i class="bi bi-trash-fill"></i>
+                      </a>
+                  </td>
+                    <td style="font-weight: bold; color: white">{{ comment.iduscomm }}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+            
+          {{ form_start(commentForm) }}
+            <div class="form-group">
+              <div class="input-group">
+                {{ form_widget(commentForm.content, {'attr': {'class': 'form-control', 'placeholder': 'Please write your comment here...'}}) }}
+                <div class="input-group-append">
+                  <!-- <a class="btn btn-success" href="{{path('app_comment_new',{ id:blog.id})}}">-->
+                  	<button type="submit" class="btn btn-success" href="{{path('app_comment_new',{ id:blog.id})}}">Commenter</button>
+                    <i class="bi bi-send-fill"></i>
+                  </a>
+              </div>
+            </div>
+          {{ form_end(commentForm) }}
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

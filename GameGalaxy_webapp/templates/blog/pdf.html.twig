@@ -1,0 +1,135 @@
+{% block head %}
+<title>{{ blog.title }}</title>
+<style>
+    /* Global styles */
+    body {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #333;
+        background-color: #f8f9fa;
+    }
+
+    a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    h1 {
+        font-size: 36px;
+        margin-top: 0;
+        margin-bottom: 20px;
+        color: #333;
+        text-align: center;
+    }
+
+    p {
+        margin-top: 0;
+        margin-bottom: 20px;
+        line-height: 1.6;
+        color: #555;
+        text-align: justify;
+    }
+
+    ul {
+        margin-top: 0;
+        margin-bottom: 20px;
+        list-style: disc;
+        color: #555;
+    }
+
+    li {
+        margin-bottom: 5px;
+    }
+
+    table {
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        width: 100%;
+        text-align: left;
+    }
+
+    table th,
+    table td {
+        padding: 10px;
+        border: 1px solid #ccc;
+    }
+
+    table th {
+        background-color: #f8f9fa;
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+        color: #555;
+    }
+
+    /* Header styles */
+    .header {
+        margin-bottom: 40px;
+        text-align: center;
+        background-color: #007bff;
+        padding: 30px 0;
+        color: #fff;
+    }
+
+    .header h1 {
+        font-size: 48px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+    }
+
+    .header p {
+        font-size: 24px;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    /* Image styles */
+    .image-container {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .image-container img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Button styles */
+    .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        font-size: 18px;
+        font-weight: bold;
+        text-transform: uppercase;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+    }
+
+    .btn:hover {
+        background-color: #0062cc;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="header">
+<h1>{{ blog.title }}</h1>
+<p>{{ blog.content }}</p>
+{% if blog.image %}
+<div class="image-container">
+<img src="{{ asset('public/uploads/' ~ blog.image) }}" alt="{{ blog.image }}">
+</div>
+{% endif %}
+</div>
+{% endblock %}

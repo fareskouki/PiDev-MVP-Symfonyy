@@ -1,0 +1,20 @@
+
+{% extends 'BACK/base.html.twig'  %}
+{% block title %}New User{% endblock %}
+{% block body %}
+    <div id="layoutSidenav_content">
+	<main>
+		<div class="card mb-4">
+			<div class="card-header">
+				<i class="fas fa-table me-1"></i>
+				Comptes
+			</div>
+
+    {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a class="btn btn-primary btn-block" href="{{ path('app_user_index') }}">back to list</a>
+
+    {{ include('user/_delete_form.html.twig') }}
+    </div>
+    </mail>
+{% endblock %}

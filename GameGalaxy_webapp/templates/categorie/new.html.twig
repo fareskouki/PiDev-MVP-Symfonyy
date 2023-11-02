@@ -1,0 +1,20 @@
+{% extends 'BACK/base.html.twig' %}
+
+{% block body %} 
+<div class="container">
+<br><br>
+    <h2 class="text-center mt-5 mb-3">Ajouter Noveau Categorie</h2>
+    <div class="card">
+    
+            <div class="card-header">
+                <a class="btn btn-outline-info float-right" href="{{ path('app_categorie_index') }}"> 
+                    Voir Tous Categorie
+                </a>
+            </div>
+<div class="card-body">
+
+    {{ include('categorie/_form.html.twig') }}
+</div>
+</div>
+    <a href="{{ path('app_categorie_index') }}">back to list</a>
+{% endblock %}

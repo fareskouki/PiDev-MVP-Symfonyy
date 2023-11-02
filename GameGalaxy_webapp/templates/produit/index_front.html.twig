@@ -1,0 +1,200 @@
+{% extends 'FRONT/base.html.twig' %}
+
+{% block title %}
+Boutique GameGalaxy
+{% endblock %}
+
+{% block body %}
+
+
+	 <!-- inner-hero start -->
+    <section class="inner-hero bg_img" data-background="FRONT/assets/images/bg/inner-hero.jpg">
+
+      <div class="el-1 position-absolute"><img src="..\FRONT\assets\images\elements\inner-hero\el-1.png" alt="image"></div>
+      <div class="el-2 position-absolute"><img src="..\FRONT\assets\images\elements\inner-hero\el-2.png" alt="image"></div>
+      <div class="el-3 position-absolute"><img src="..\FRONT\assets\images\elements\inner-hero\el-3.png" alt="image"></div>
+      <div class="el-4 position-absolute"><img src="..\FRONT\assets\images\elements\inner-hero\el-4.png" alt="image"></div>
+      <div class="el-5 position-absolute"><img src="..\FRONT\assets\images\elements\inner-hero\el-5.png" alt="image"></div>
+      <div class="el-6 position-absolute"><img src="..\FRONT\assets\images\elements\inner-hero\el-6.png" alt="image"></div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h2 class="page-title">produit</h2>
+            <ul class="page-list">
+              <li><a href="index.html">Acceuil</a></li>
+              <li>produit</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- inner-hero end -->
+
+	
+
+    <!-- game section start -->
+    <section class="pt-120 pb-120 position-relative overflow-hidden">
+      <div class="game-el-1" data-paroller-factor="-0.1" data-paroller-type="foreground"
+              data-paroller-direction="horizontal"><img src="..\FRONT\assets\images\game-el-1.png" alt="image"></div>
+      <div class="game-el-2" data-paroller-factor="-0.1" data-paroller-type="foreground"
+        data-paroller-direction="horizontal"><img src="..\FRONT\assets\images\game-el-2.png" alt="image"></div>
+      <div class="game-el-3" data-paroller-factor="0.1" data-paroller-type="foreground"
+        data-paroller-direction="horizontal"><img src="..\FRONT\assets\images\game-el-3.png" alt="image"></div>
+      <div class="game-el-4" data-paroller-factor="0.25" data-paroller-type="foreground"
+        data-paroller-direction="vertical"><img src="..\FRONT\assets\images\game-el-4.png" alt="image"></div>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-5">
+            <div class="section-header text-center has--bg">
+               <div class="header-image"><img src="..\FRONT\assets\images\elements\header-el-5.png" alt="image"></div>
+              <h2 class="section-title">Nos jeux</h2>
+              <div class="tags-list">
+                  <a href="/cart">Votre Panier</a>
+                  
+                </div>
+<p>Nous créons des jeux pour une variété de plates-formes et de consoles de jeu, y compris PC, Mac, Switch, Playstation 4, Xbox One et les nouvelles consoles à venir.</p>            </div>
+          </div>
+        </div>
+          <div class="row">
+          <div class="col-lg-12">
+            <div class="games-search-wrapper">
+              <div class="left">
+   <form class="games-filter-from">
+    <div class="row align-items-center">
+        <div class="col-lg-2 mb-lg-0 mb-2"><span>TRIER PAR:</span></div>
+        <div class="col-lg-5 col-md-6 mb-md-0 mb-3">
+            <select class="nice-select" name="categorieId" onchange="this.form.submit()">
+                <option value="" {{ not selectedcategorieId  ? 'selected' : '' }}>All Categories</option>
+                {% for categorie in categories %}
+                    <option value="{{ categorie.id }}" {{ categorie.id == selectedcategorieId  ? 'selected' : '' }}>{{ categorie.nomCategorie }}</option>
+                {% endfor %}
+            </select>
+        </div>                   
+    </div>
+</form>
+
+              </div>
+            </div>
+          </div>
+        </div> 
+        <div class="row  mt-50 mb-none-40">
+       {% for produit in produits %}
+          <div class="col-md-6 mb-40">
+            <div class="game-card">
+              <div class="game-card__thumb">
+              <img src="{{ asset(uploads_dir ~ produit.img) }}" alt="photo"> </div>
+              <div class="game-card__content">
+                <div class="game-card__details">
+                  <div class="game-card__info">
+                    <div class="thumb"><img src="{{ asset(uploads_dir ~ produit.img) }}" alt="photo"> </div>
+                    <div class="content">
+                      <h3 class="game-card__title"><a href="{{ path('app_produit_detail', {'id': produit.id}) }}"><td>{{ produit.nomProduit }}</td></a></h3>
+                      <h3 class="game-card__title"><a href="{{ path('app_produit_detail', {'id': produit.id}) }}"><td>{{ produit.prix }}</td></a></h3>
+                      <p>{{ produit.description|slice(0, 15) ~ '...' }} <a href="{{ path('app_produit_detail', {'id': produit.id}) }}">Read More</a></p>
+
+                    </div>
+                  </div>
+                  {{ generate_stars(produit.rating) }}</i>
+                </div>
+                <div class="game-card__action">
+                  <p class="mb-2">Download now at</p>              
+                  <a href="{{ path('cart_add', {'id': produit.id}) }}" ><button type="button" class="btn btn-outline-warning">Ajouter Panier</button> </a>
+
+                  <img src="{{qr_code_url(app.request.uri)}}/{{produit.id}}/detail"alt="photo" width="90" height="90"/>
+                </div>
+              </div><!-- game-card__content end -->
+            </div><!-- game-card end -->
+          </div>
+                          {% endfor %}
+        </div>
+
+
+  <!-- footer section start  -->
+  <footer class="footer-section bg_img" data-background="assets/images/elements/footer.png">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="subscribe-area">
+            <div class="obj"><img src="..\FRONT\assets\images\elements\subscribe.png" alt="image"></div>
+            <div class="subscribe-content">
+              <h2 class="title">Découvrez les nouveaux jeux!</h2>
+              <p>Abonnez-vous pour être informé des prochaines versions du jeu</p>
+              <p>
+              <form class="subscribe-form">
+                <input type="email" name="subscribe_email" id="subscribe_email" placeholder="Rejoignez-nous">
+                <button type="submit">Subscribe</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row footer-top mb-none-50">
+        <div class="col-lg-3 col-sm-6 mb-50">
+          <div class="footer-widget">
+            <h3 class="footer-widget__title">ABOUT</h3>
+            <ul class="short-links">
+              <li><a href="#0">About Us</a></li>
+              <li><a href="#0">Contact Us</a></li>
+              <li><a href="#0">Customer Reviews</a></li>
+              <li><a href="#0">Privacy Policy</a></li>
+            </ul>
+          </div><!-- footer-widget end -->
+        </div>
+        <div class="col-lg-3 col-sm-6 mb-50">
+          <div class="footer-widget">
+            <h3 class="footer-widget__title">MY ACCOUNT</h3>
+            <ul class="short-links">
+              <li><a href="#0">Manage Your Account</a></li>
+              <li><a href="#0">Account Varification</a></li>
+              <li><a href="#0">Safety & Security</a></li>
+            </ul>
+          </div><!-- footer-widget end -->
+        </div>
+        <div class="col-lg-3 col-sm-6 mb-50">
+          <div class="footer-widget">
+            <h3 class="footer-widget__title">HELP CENTER</h3>
+            <ul class="short-links">
+              <li><a href="#0">Help centre</a></li>
+              <li><a href="#0">FAQ</a></li>
+              <li><a href="#0">Quick Start Guide</a></li>
+              <li><a href="#0">Tutorials</a></li>
+            </ul>
+          </div><!-- footer-widget end -->
+        </div>
+        <div class="col-lg-3 col-sm-6 mb-50">
+          <div class="footer-widget">
+            <h3 class="footer-widget__title">LEGAL INFO</h3>
+            <ul class="short-links">
+              <li><a href="#0">Security</a></li>
+              <li><a href="#0">Terms of Service</a></li>
+              <li><a href="#0">Become Affiliate</a></li>
+              <li><a href="#0">Complaints Policy</a></li>
+            </ul>
+          </div><!-- footer-widget end -->
+        </div>
+      </div><!-- footer-top end -->
+      <script>
+    $(document).ready(function() {
+        // Show products based on the selected category
+        $('#categorySelect').change(function() {
+            var categoryId = $(this).val();
+            $('#productList .col-md-6').addClass('d-none');
+            if (categoryId) {
+                $('#productList .col-md-6[data-category-id="' + categoryId + '"]').removeClass('d-none');
+            } else {
+                $('#productList .col-md-6').removeClass('d-none');
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('#categorySelect').change(function() {
+            var categoryId = $(this).val();
+            window.location.href = '{{ path('app_produit_index') }}?category=' + categoryId;
+        });
+    });
+</script>
+
+	{% endblock %}

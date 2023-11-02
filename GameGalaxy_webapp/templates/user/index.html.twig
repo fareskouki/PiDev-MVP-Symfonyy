@@ -1,0 +1,89 @@
+{% extends 'BACK/base.html.twig' %}
+{% block title %}
+	Comptes
+{% endblock %}
+
+{% block body %}
+	<div id="layoutSidenav_content">
+		<main>
+			<div class="card mb-4">
+				<div class="card-header">
+					<i class="fas fa-table me-1"></i>
+					Comptes
+				</div>
+				<div class="card-body">
+					<table id="datatablesSimple">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Email</th>
+								<th>Roles</th>
+								<th>Password</th>
+								<th>Pseudo</th>
+								<th>Addresse</th>
+								<th>Date_naissance</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tfoot>
+							<tr>
+								<th>Id</th>
+								<th>Email</th>
+								<th>Roles</th>
+								<th>Password</th>
+								<th>Pseudo</th>
+								<th>Addresse</th>
+								<th>Date_naissance</th>
+								<th>Actions</th>
+							</tr>
+						</tfoot>
+						<tbody>
+							{% for user in users %}
+								<tr>
+									<td>{{ user.id }}</td>
+									<td>{{ user.email }}</td>
+									<td>{{ user.roles ? user.roles|json_encode : '' }}</td> <!--//join-->
+									<td>{{ user.password }}</td>
+									<td>{{ user.Pseudo }}</td>
+									<td>{{ user.addresse }}</td>
+									<td>{{ user.dateNaissance ? user.dateNaissance|date('Y-m-d') : '' }}</td>
+									<td>
+										<a class="btn btn-info my-3" href="{{ path('app_user_show', {'id': user.id}) }}">show</a>
+										<a class="btn btn-primary" href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
+									</td>
+								</tr>
+							{% else %}
+								<tr>
+									<td>
+										N/A
+									</td>
+									<td>
+										N/A
+									</td>
+									<td>
+										N/A
+									</td>
+									<td>
+										N/A
+									</td>
+									<td>
+										N/A
+									</td>
+									<td>
+										N/A
+									</td>
+									<td>
+										N/A
+									</td>
+									<td>
+										N/A
+									</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+					<a class="btn btn-primary" href="{{ path('app_user_new') }}">Créer un compte</a>
+				</div>
+			</div>
+		</main>
+	{% endblock %}

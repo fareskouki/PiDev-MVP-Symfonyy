@@ -1,0 +1,48 @@
+{% extends 'FRONT/base.html.twig' %}
+
+{% block title %}Order index{% endblock %}
+
+{% block body %}
+
+    <section class="bg-light p-3">
+        <h1>Order index</h1>
+    </section>
+
+        <h1>Order index</h1>
+        {% if paymentSuccess %}
+        <h2>Payment Success</h2>
+        {% endif %}
+        {% if paymentFail %}
+        <h2>Payment Failure</h2>
+        {% endif %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th style="color: #8984dc">Id</th>
+                <th style="color: #8984dc">Status</th>
+                <th style="color: #8984dc">Total</th>
+                <th style="color: #8984dc">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for order in orders %}
+            <tr>
+                <td style="color: #8984dc">{{ order.id }}</td>
+                <td style="color: #8984dc">{{ order.status }}</td>
+                <td style="color: #8984dc">{{ order.total }}</td>
+                <td style="color: #8984dc">
+                    <a style="color: #8984dc" href="{{ path('app_order_show', {'id': order.id}) }}">visualiser</a>
+                    <a style="color: #8984dc" href="{{ path('app_order_edit', {'id': order.id}) }}">modifier</a>
+                    <a style="color: #8984dc" href="{{ path('app_reclamation_new', {'orderId': order.id}) }}">reclamer</a>
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td style="color: #8984dc" colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

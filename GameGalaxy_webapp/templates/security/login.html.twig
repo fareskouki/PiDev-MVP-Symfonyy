@@ -1,0 +1,99 @@
+{% extends 'FRONT/base.html.twig' %}
+{% block body %}
+<body>
+
+  <!-- prealoader start  -->
+  <div class="preloader">
+    <div class="spinner">
+      <div class="dot1"></div>
+      <div class="dot2"></div>
+    </div>
+  </div>
+  <!-- prealoader end -->
+
+  <!-- scroll-to-top start -->
+  <div class="scroll-to-top">
+    <span class="scroll-icon">
+      <i class="las la-arrow-up"></i>
+    </span>
+  </div>
+  <!-- scroll-to-top end -->
+  <!-- page-wrapper start -->
+  <div class="page-wrapper">
+    <!-- login modal -->
+    <div class="modal fade" id="loginModal" tabindex="1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content bg-transparent">
+          <div class="modal-body">
+            <div class="account-area">
+              <h3 class="title mb-4">Welcome to Ophela</h3>
+              <form class="account-form">
+                <div class="form-group">
+                  <label>Your Email </label>
+                  <input type="email" name="login_email" placeholder="Enter Your Email" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label>Password </label>
+                  <input type="password" name="login_email" placeholder="Enter Your Password" class="form-control">
+                </div>
+               
+               
+               
+                <div class="text-center">
+                  <a  href="{{ path('app_login') }}" type="submit" class="cmn-btn">Sign IN</a>
+                </div>
+               
+               
+               
+              </form>
+              <div class="or-devider mt-5"><span>OR</span></div>
+              <div class="text-center mt-4">
+                <p>Sign up with your work email</p>
+                <a href="#0" class="google-btn mt-4 mb-3"><img src="FRONT\assets\images\icon\google.png" alt="image">Sign Up
+                  with Google</a>
+                <p>Don't have an account? <a href="{{ path('app_register') }}" data-dismiss="modal" data-toggle="modal"
+                    data-target="#signupModal">Sign up here</a></p>
+              </div>
+            </div><!-- account-area end -->
+          </div>
+        </div>
+      </div>
+    </div>
+ <section class="pt-120 pb-120 position-relative overflow-hidden">
+<form method="post">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+    
+    <label for="inputEmail">Email</label>
+    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+    <label for="inputPassword">Password</label>
+    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> Remember me
+            </label>
+        </div>
+    
+
+    <button class="btn btn-lg btn-primary btn-block enter-btn" type="submit">
+        Sign in
+    </button>
+      <div class="text-center">
+ <p>Forgot your password?</p> <a href="{{ path('app_forgot_pass') }}" type="submit">recover password</a>
+  </div>
+     <p class="sign-up">Don't have an Account?<a href="{{ path('app_register') }}"> Sign Up</a></p>
+</form>
+ </section>
+
+{% endblock %}

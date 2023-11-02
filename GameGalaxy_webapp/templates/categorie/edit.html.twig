@@ -1,0 +1,28 @@
+{% extends 'Back/base.html.twig' %}
+
+{% block body %}
+<div class="container">
+<br>
+        <h2 class="text-center mt-5 mb-3">Edit Categorie</h2>
+    <div class="card">
+            <div class="card-header">
+                <a class="btn btn-outline-info float-right" href="{{ path('app_categorie_index') }}"> 
+                    Voir tous les Categorie
+                </a>
+            </div>
+                <table class="table">
+        <tbody>
+
+     <div class="card-body">
+    {{ include('categorie/_form.html.twig', {'button_label': 'Update', 'button_color': 'btn-outline-success'}) }}
+    </div>
+        </div>
+    <a href="{{ path('app_categorie_index') }}">  Back to list</a>
+</tbody>
+    </table>
+    </div>
+{% endblock %}
+
+
+               
+              

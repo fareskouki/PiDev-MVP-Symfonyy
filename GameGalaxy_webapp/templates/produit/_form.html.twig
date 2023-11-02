@@ -1,0 +1,35 @@
+
+
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+    <div class="form-group">
+    <h3>Nom Produit</h3>
+        {{ form_widget(form.nom_produit, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.nom_produit,{'attr':{'class':'text-danger'}}) }}
+
+    </div>
+    <div class="form-group"><h3>Prix</h3>
+        {{ form_widget(form.prix, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.prix,{'attr':{'class':'text-danger'}}) }}
+    </div>
+    <div class="form-group"><h3>Description</h3>
+        {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.description,{'attr':{'class':'text-danger'}}) }}
+    </div>
+    <div class="form-group"><h3>Stock</h3>
+        {{ form_widget(form.stock, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.stock,{'attr':{'class':'text-danger'}}) }}
+    </div>
+    <div class="form-group"><h3>Image</h3>
+        {{ form_widget(form.img, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.img,{'attr':{'class':'text-danger'}}) }}
+    </div>
+    <div class="form-group"><h3> Categorie</h3>
+        {{ form_widget(form.id_categorie, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.id_categorie,{'attr':{'class':'text-danger'}}) }}
+    </div>
+    <div class="form-group"><h3>Rating</h3>
+        {{ form_widget(form.rating, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.rating,{'attr':{'class':'text-danger'}}) }}
+    </div>
+    <button class="btn {{ button_color|default('btn-outline-primary') }}  mt-3">{{ button_label|default('Save Project') }}</button>
+{{ form_end(form) }}

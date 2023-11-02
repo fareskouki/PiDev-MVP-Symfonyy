@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>
+		{% block title %}TITLE
+		{% endblock %}
+	</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<title>Dashboard - SB Admin</title>
+	<link href="{{ asset('https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css')}}" rel="stylesheet" />
+	<link href="{{ asset('BACK/css/styles.css')}}" rel="stylesheet" />
+
+
+	<script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		crossorigin="anonymous"></script>
+	<script src="{{ asset('BACK/js/scripts.js')}}"></script>
+	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>-->
+	<script src="{{ asset('BACK/assets/demo/chart-area-demo.js')}}"></script>
+	<script src="{{ asset('BACK/assets/demo/chart-bar-demo.js')}}"></script>
+	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+	<script src="{{ asset('BACK/js/datatables-simple-demo.js')}}"></script>
+
+</head>
+
+<body class="sb-nav-fixed">
+
+	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+		<!-- Navbar Brand-->
+		<a class="navbar-brand ps-3" href="#CHANGEME!!!">
+			{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+			<p>GameGalaxy Admin</p>
+			{% endif %}
+		</a>
+		<!-- Sidebar Toggle-->
+		<button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!">
+			<i class="fas fa-bars"></i>
+		</button>
+		<!-- Navbar Search-->
+		<form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"></form>
+		<!-- Navbar-->
+		<ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+					aria-expanded="false">
+					<i class="fas fa-user fa-fw"></i>
+				</a>
+				<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+					<li>
+						<a class="dropdown-item" href="{{ path('app_logout')}}">Se déconnecter</a>
+					</li>
+					<li>
+						<a class="dropdown-item" href="{{ path('app_profil')}}"> Profil</a>
+					</li>
+
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	<div id="layoutSidenav">
+		<div id="layoutSidenav_nav">
+			<nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+				<div class="sb-sidenav-menu">
+					<div class="nav">
+						<div class="sb-sidenav-menu-heading">Général</div>
+						<a class="nav-link" href="#CHANGEME!!!">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-tachometer-alt"></i>
+							</div>
+							Dashboard
+						</a>
+						<div class="sb-sidenav-menu-heading">Gestionnaires</div>
+						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+							data-bs-target="#collapseComptes" aria-expanded="false" aria-controls="collapseComptes">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-columns"></i>
+							</div>
+							Comptes
+							<div class="sb-sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<div class="collapse" id="collapseComptes" aria-labelledby="headingOne"
+							data-bs-parent="#sidenavAccordion">
+							<nav class="sb-sidenav-menu-nested nav">
+								<a class="nav-link" href="{{path('app_user_index')}}">Utilisateurs</a>
+
+							</nav>
+						</div>
+
+						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseBlogs"
+							aria-expanded="false" aria-controls="collapseBlogs">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-columns"></i>
+							</div>
+							Blog
+							<div class="sb-sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<div class="collapse" id="collapseBlogs" aria-labelledby="headingOne"
+							data-bs-parent="#sidenavAccordion">
+							<nav class="sb-sidenav-menu-nested nav">
+								<a class="nav-link" href="/blog/back">Sujets</a>
+
+							</nav>
+						</div>
+						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+							data-bs-target="#collapseEvenements" aria-expanded="false"
+							aria-controls="collapseEvenements">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-columns"></i>
+							</div>
+							Evenements
+							<div class="sb-sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<div class="collapse" id="collapseEvenements" aria-labelledby="headingOne"
+							data-bs-parent="#sidenavAccordion">
+							<nav class="sb-sidenav-menu-nested nav">
+								<a class="nav-link" href="/evenement/back">Evenements</a>
+								<a class="nav-link" href="/reservation/back">Réservations</a>
+							</nav>
+						</div>
+
+						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+							data-bs-target="#collapseProduits" aria-expanded="false" aria-controls="collapseProduits">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-columns"></i>
+							</div>
+							Produits
+							<div class="sb-sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<div class="collapse" id="collapseProduits" aria-labelledby="headingOne"
+							data-bs-parent="#sidenavAccordion">
+							<nav class="sb-sidenav-menu-nested nav">
+								<a class="nav-link" href="/produit">Produits</a>
+								<a class="nav-link" href="/categorie">Catégories</a>
+							</nav>
+						</div>
+
+						<div class="sb-sidenav-menu-heading">Service Client</div>
+						<a class="nav-link" href="/reclamation/rec">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-chart-area"></i>
+							</div>
+							Réclamations
+						</a>
+						<div class="sb-sidenav-menu-heading">Commercial</div>
+						<a class="nav-link" href="/order/back">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-chart-area"></i>
+							</div>
+							Commandes
+						</a>
+
+					</div>
+				</div>
+				<div class="sb-sidenav-footer">
+					<div class="small">Logged in as:
+						<h2>{{app.user}}</h2></div>
+					<!-- DYNAMIC -->
+
+				</div>
+			</nav>
+		</div>
+
+		<div id="layoutSidenav_content">
+			<main>
+				<div class="container-fluid px-4">
+					<h1 class="mt-4">{{ Title }}</h1>
+					<ol class="breadcrumb mb-4">
+						<li class="breadcrumb-item">
+							<a href="#">Acceuil</a>
+						</li>
+						<li class="breadcrumb-item active">{{ Title }}</li>
+					</ol>
+					<div class="card mb-4">
+						<div class="card mb-4">
+							
+						{% block body %}
+
+
+						{% endblock %}
+					</div>
+				</div>
+			</main>
+			<footer class="py-4 bg-light mt-auto">
+				<div class="container-fluid px-4">
+					<div class="d-flex align-items-center justify-content-between small">
+						<div class="text-muted">Copyright &copy; GameGalaxy 2023</div>
+						<div>
+							<a href="#">Privacy Policy</a>
+							&middot;
+							<a href="#">Terms &amp; Conditions</a>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+{{ form_start(form) }}
+<div class="my-custom-class-for-errors">
+    {{ form_errors(form) }}
+</div>
+
+<div class="row">
+    <div class="col" hidden>
+        {{ form_row(form.total,{'attr': {'style':'color: #8984dc'}}) }}
+    </div>
+    <div class="col">
+        {{ form_row(form.status, {'attr': {'style':'color: #8984dc; background-color:#FFFFFFs'}}) }}
+    </div>
+    <div class="col" id="some-custom-id" hidden>
+        {{ form_row(form.products) }}
+    </div>
+</div>
+</br>
+    <button style="color: #FFFFFF" class="btn btn-success">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

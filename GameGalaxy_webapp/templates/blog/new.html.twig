@@ -1,0 +1,40 @@
+{% set Title = 'Nouveau Blog'  %} 
+{% extends 'BACK/base.html.twig' %}
+
+{% block body %}
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="d-flex justify-content-between mb-4">
+          
+        </div>
+
+        <div class="text-center border rounded p-3">
+
+          {{ form_start(blog, {'attr': {'novalidate': 'novalidate'}}) }}
+          <div class="form-group">
+              {{ form_label(blog.title, 'Sujet', {'label_attr': {'class': 'font-weight-bold'}}) }}
+              {{ form_widget(blog.title, {'attr': {'class': 'form-control', 'placeholder': 'Entrez le sujet du blog'}}) }}
+              <div class="text-danger">{{ form_errors(blog.title, {'attr': {'class': 'invalid-feedback'}}) }}</div>
+          </div>
+          <div class="form-group">
+              {{ form_label(blog.content, 'Content', {'label_attr': {'class': 'font-weight-bold'}}) }}
+              {{ form_widget(blog.content, {'attr': {'class': 'form-control', 'placeholder': 'Entrez une description du blog'}}) }}
+              <div class="text-danger">{{ form_errors(blog.content, {'attr': {'class': 'invalid-feedback'}}) }}</div>
+          </div>
+          <div class="form-group">
+              {{ form_label(blog.image, 'Photo principale', {'label_attr': {'class': 'font-weight-bold'}}) }}
+              {{ form_widget(blog.image, {'attr': {'class': 'form-control'}}) }}
+              <div class="text-danger">{{ form_errors(blog.image, {'attr': {'class': 'invalid-feedback'}}) }}</div>
+          </div>
+          <div class="form-group d-flex justify-content-end">
+              <button type="submit" class="btn btn-success mr-3">Add blog</button>
+          </div>
+          {{ form_end(blog) }}
+         
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

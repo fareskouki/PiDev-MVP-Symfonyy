@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <title>
+        {% block title %}TITLE
+        {% endblock %}
+    </title>
+    <link
+            rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+    {% block stylesheets %}
+
+        <!-- site favicon -->
+        <link
+                rel="icon" type="image/png" href="FRONT/asset/images/favicon.png" sizes="16x16">
+        <!-- bootstrap 4  -->
+        <link rel="stylesheet" href="{{asset('FRONT/assets/css/vendor/bootstrap.min.css')}}">
+        <link
+                rel="stylesheet" href="{{asset('FRONT/assets/css/all.min.css')}}">
+        <!-- line-awesome webfont -->
+        <link
+                rel="stylesheet" href="{{asset('FRONT/assets/css/line-awesome.min.css')}}">
+        <!-- custom select css -->
+        <link
+                rel="stylesheet" href="{{asset('FRONT/assets/css/vendor/nice-select.css')}}">
+        <!-- animate css  -->
+        <link
+                rel="stylesheet" href="{{asset('FRONT/assets/css/vendor/animate.min.css')}}">
+        <!-- lightcase css -->
+        <link
+                rel="stylesheet" href="{{asset('FRONT/assets/css/vendor/lightcase.css')}}">
+        <!-- slick slider css -->
+        <link
+                rel="stylesheet" href="{{asset('FRONT/assets/css/vendor/slick.css')}}">
+        <!-- style main css -->
+        <link rel="stylesheet" href="{{asset('FRONT/assets/css/main.css')}}">
+    {% endblock %}
+
+    {% block javascripts %}
+        <!-- page-wrapper end -->
+        <!-- jQuery library --><script src="{{asset('FRONT/assets/js/vendor/jquery-3.5.1.min.js')}}"> </script>
+        <!-- bootstrap js -->
+        <script src="{{asset('FRONT/assets/js/vendor/bootstrap.bundle.min.js')}}"></script>
+        <!-- custom select js -->
+        <script src="{{asset('FRONT/assets/js/vendor/jquery.nice-select.min.js')}}"></script>
+        <!-- lightcase js -->
+        <script src="{{asset('FRONT/assets/js/vendor/lightcase.js')}}"></script>
+        <!-- wow js -->
+        <script src="{{asset('FRONT/assets/js/vendor/wow.min.js')}}"></script>
+        <!-- slick slider js -->
+        <script src="{{asset('FRONT/assets/js/vendor/slick.min.js')}}"></script>
+        <script src="{{asset('FRONT/assets/js/vendor/TweenMax.min.js')}}"></script>
+        <!-- contact js -->
+        <script src="{{asset('FRONT/assets/js/contact.js')}}"></script>
+        <script src="{{asset('http://rexbd.net/html/sporcia/demo/assets/js/vendor/jquery.paroller.min.js')}}"></script>
+        <!-- custom js -->
+        <script src="{{asset('FRONT/assets/js/app.js')}}"></script>
+    {% endblock %}
+</head>
+<body>
+{% block header %}
+    <!-- header-section start  -->
+    <header class="header">
+        <div class="header__bottom">
+            <div class="container">
+                <nav class="navbar navbar-expand-xl align-items-center">
+                    <a class="site-logo site-title" href="index.html"><img src="FRONT\assets\images\logo.png" alt="site-logo"><span class="logo-icon">
+									<i class="flaticon-fire"></i>
+								</span>
+                    </a>
+                    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="menu-toggle"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav main-menu ml-auto">
+                            <li class="menu_has_children">
+                                <a href="">Acceuil</a>
+
+                            </li>
+                            <li class="menu_has_children">
+                                <a href="#0">Boutique</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="games.html">
+                                            Toutes les catégories
+                                        </a>
+                                        <!-- BOUCLE POUR AFFICHER CATEGORIES -->
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="menu_has_children">
+                                <a href="#0">Blog</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="blog-one.html">Tous les blogs</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="menu_has_children">
+                                <a href="#0">Evenements</a>
+
+                            </li>
+                            <li>
+                                <a href="contact.html">contact</a>
+                            </li>
+                        </ul>
+                        <div class="nav-right">
+                            <a href="#0" data-toggle="modal" data-target="#loginModal">Rejoignez-nous!</a>
+                        </div>
+                        <div class="nav-right">
+                            <a href="{{path("app_cart_index")}}" data-toggle="modal" data-target="#loginModal">Panier</a>
+                        </div>
+                    </div>
+
+                </nav>
+            </div>
+        </div>
+        <!-- header__bottom end -->
+    </header>
+    <!-- header-section end  -->
+{% endblock %}
+{% block body %}{% endblock %}
+
+</body>
+</html>

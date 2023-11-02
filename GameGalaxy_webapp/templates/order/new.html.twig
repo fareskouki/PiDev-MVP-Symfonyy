@@ -1,0 +1,13 @@
+{% extends 'FRONT/base.html.twig' %}
+
+{% block title %}New Order{% endblock %}
+
+{% block body %}
+    <section class="bg-light p-3">
+    </section>
+    <h1>Create new Order</h1>
+
+    {{ include('order/_form.html.twig') }}
+
+    <a href="{{ path('app_order_index') }}">back to list</a>
+{% endblock %}

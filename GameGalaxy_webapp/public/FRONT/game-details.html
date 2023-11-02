@@ -1,0 +1,521 @@
+﻿<!-- meta tags and other links -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ophela - Gaming Studio HTML Template</title>
+  <!-- site favicon -->
+  <link rel="icon" type="image/png" href="assets\images\favicon.png" sizes="16x16">
+  <!-- bootstrap 4  -->
+  <link rel="stylesheet" href="assets\css\vendor\bootstrap.min.css">
+  <!-- fontawesome 5  -->
+  <link rel="stylesheet" href="assets\css\all.min.css">
+  <!-- line-awesome webfont -->
+  <link rel="stylesheet" href="assets\css\line-awesome.min.css">
+  <!-- custom select css -->
+  <link rel="stylesheet" href="assets\css\vendor\nice-select.css">
+  <!-- animate css  -->
+  <link rel="stylesheet" href="assets\css\vendor\animate.min.css">
+  <!-- lightcase css -->
+  <link rel="stylesheet" href="assets\css\vendor\lightcase.css">
+  <!-- slick slider css -->
+  <link rel="stylesheet" href="assets\css\vendor\slick.css">
+  <!-- style main css -->
+  <link rel="stylesheet" href="assets\css\main.css">
+</head>
+  <body>
+
+    <!-- prealoader start  -->
+    <div class="preloader">
+      <div class="spinner">
+        <div class="dot1"></div>
+        <div class="dot2"></div>
+      </div>
+    </div>
+    <!-- prealoader end -->
+
+  <!-- scroll-to-top start -->
+  <div class="scroll-to-top">
+    <span class="scroll-icon">
+      <i class="las la-arrow-up"></i>
+    </span>
+  </div>
+  <!-- scroll-to-top end -->
+  <!-- page-wrapper start -->
+  <div class="page-wrapper">
+      <!-- login modal -->
+  <div class="modal fade" id="loginModal" tabindex="1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content bg-transparent">
+        <div class="modal-body">
+          <div class="account-area">
+            <h3 class="title mb-4">Welcome to Ophela</h3>
+            <form class="account-form">
+              <div class="form-group">
+                <label>Your Email </label>
+                <input type="email" name="login_email" placeholder="Enter Your Email" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>Password </label>
+                <input type="password" name="login_email" placeholder="Enter Your Password" class="form-control">
+              </div>
+              <div class="form-group">
+                <p>Forgot your password? <a href="#0">recover password</a></p>
+              </div>
+              <div class="text-center">
+                <button type="submit" class="cmn-btn">Sign IN</button>
+              </div>
+            </form>
+            <div class="or-devider mt-5"><span>OR</span></div>
+            <div class="text-center mt-4">
+              <p>Sign up with your work email</p>
+              <a href="#0" class="google-btn mt-4 mb-3"><img src="assets\images\icon\google.png" alt="image">Sign Up with Google</a>
+              <p>Don't have an account? <a href="#0" data-dismiss="modal" data-toggle="modal" data-target="#signupModal">Sign up here</a></p>
+            </div>
+          </div><!-- account-area end -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sign Up modal -->
+  <div class="modal fade" id="signupModal" tabindex="1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content bg-transparent">
+        <div class="modal-body">
+          <div class="account-area">
+            <h3 class="title mb-4">Let's get started</h3>
+            <div class="text-center mt-4">
+              <a href="#0" class="google-btn mt-4 mb-3"><img src="assets\images\icon\google.png" alt="image">Sign Up with Google</a>
+            </div>
+            <div class="or-devider mt-4"><span>OR</span></div>
+            <p class="text-center mt-2 mb-4">Sign up with your work email</p>
+            <form class="account-form">
+              <div class="form-group">
+                <label>Your Email </label>
+                <input type="email" name="login_email" placeholder="Enter Your Email" class="form-control">
+              </div>
+              <div class="text-center">
+                <button type="submit" class="cmn-btn">Try It Now</button>
+              </div>
+            </form>
+            <p class="text-center mt-3">Already have an account?<a href="#0" data-dismiss="modal" data-toggle="modal" data-target="#loginModal">Sign In</a></p>
+          </div><!-- account-area end -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- header-section start  -->
+  <header class="header">
+    <div class="header__bottom">
+      <div class="container">
+        <nav class="navbar navbar-expand-xl align-items-center">
+          <a class="site-logo site-title" href="index.html"><img src="assets\images\logo.png" alt="site-logo"><span class="logo-icon"><i class="flaticon-fire"></i></span></a>
+          <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="menu-toggle"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav main-menu ml-auto">
+              <li class="menu_has_children">
+                <a href="#0">Home</a>
+                <ul class="sub-menu">
+                  <li><a href="index.html">Home One</a></li>
+                  <li><a href="index-two.html">Home Two</a></li>
+                </ul>
+              </li>
+              <li class="menu_has_children">
+                <a href="#0">Games</a>
+                <ul class="sub-menu">
+                  <li><a href="games.html">All Games</a></li>
+                  <li><a href="game-details.html">Game Details</a></li>
+                </ul>
+              </li>
+              <li class="menu_has_children">
+                <a href="#0">Blog</a>
+                <ul class="sub-menu">
+                  <li><a href="blog-one.html">Blog One</a></li>
+                  <li><a href="blog-two.html">Blog Two</a></li>
+                  <li><a href="blog-details.html">Blog Details</a></li>
+                </ul>
+              </li>
+              <li class="menu_has_children">
+                <a href="#0">pages</a>
+                <ul class="sub-menu">
+                  <li><a href="about.html">About Us</a></li>
+                </ul>
+              </li>
+              <li><a href="contact.html">contact</a></li>
+            </ul>
+            <div class="nav-right">
+              <a href="#0" data-toggle="modal" data-target="#loginModal">join now</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div><!-- header__bottom end -->
+  </header>
+  <!-- header-section end  -->
+
+    <!-- inner-hero start -->
+    <section class="inner-hero style--three">
+      <div class="clip-path-img"><img src="assets\images\bg\inner-hero-3.jpg" alt="image"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="single-game-hero text-center">
+              <img src="assets\images\elements\trailer-cartoon.png" alt="imge" class="game-img">
+              <h2 class="game-name">Crazy Farm</h2>
+              <div>
+                <a href="#0"><img src="assets\images\elements\google-btn-lg.png" alt="btn-image"></a>
+                <a href="#0"><img src="assets\images\elements\apple-btn-lg.png" alt="btn-image"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- inner-hero end -->
+
+    <!-- game features section start -->
+    <div class="pt-120 pb-120">
+      <div class="container">
+        <div class="row mb-none-30">
+          <div class="col-lg-3 col-sm-6 mb-30">
+            <div class="feature-card bg_img" data-background="assets/images/elements/features/bg-1.png">
+              <div class="feature-card__icon">
+                <img src="assets\images\elements\features\1.png" alt="img">
+              </div>
+              <div class="feature-card__content">
+                <p class="text-white">Ultimate Farming</p>
+              </div>
+            </div><!-- feature-card end -->
+          </div>
+          <div class="col-lg-3 col-sm-6 mb-30">
+            <div class="feature-card bg_img" data-background="assets/images/elements/features/bg-2.png">
+              <div class="feature-card__icon">
+                <img src="assets\images\elements\features\2.png" alt="img">
+              </div>
+              <div class="feature-card__content">
+                <p class="text-white">Exciting Expeditions</p>
+              </div>
+            </div><!-- feature-card end -->
+          </div>
+          <div class="col-lg-3 col-sm-6 mb-30">
+            <div class="feature-card bg_img" data-background="assets/images/elements/features/bg-3.png">
+              <div class="feature-card__icon">
+                <img src="assets\images\elements\features\3.png" alt="img">
+              </div>
+              <div class="feature-card__content">
+                <p class="text-white">Fun Treasure Hunts</p>
+              </div>
+            </div><!-- feature-card end -->
+          </div>
+          <div class="col-lg-3 col-sm-6 mb-30">
+            <div class="feature-card bg_img" data-background="assets/images/elements/features/bg-4.png">
+              <div class="feature-card__icon">
+                <img src="assets\images\elements\features\4.png" alt="img">
+              </div>
+              <div class="feature-card__content">
+                <p class="text-white">Thrilling updates</p>
+              </div>
+            </div><!-- feature-card end -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- game features section end -->
+
+    <!-- single game start -->
+    <section class="pt-120 position-relative">
+      <div class="bg-el"><img src="assets\images\bg\games-details.jpg" alt="image"></div>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="section-header text-center has--bg">
+              <div class="header-image"><img src="assets\images\elements\header-el-6.png" alt="image"></div>
+              <h2 class="section-title">Welcome To The Crazy Farm Game</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in justo at enim consectetur commodo. Fusce nisi sem, finibus id fermentum vel, semper et libero. Morbi in ex eget tortor pellentesque mattis. Donec id elit felis. Pellentesque mollis eu nisl vel hendrerit.</p>
+              <a href="#" class="cmn-btn style--two mt-5">PLAY NOW ON YOUR DEVICE</a>
+            </div>
+          </div>
+        </div>
+        <div class="single-game-slider">
+          <div class="single-slide">
+            <img src="assets\images\games\slider-1.jpg" alt="image">
+          </div><!-- single-slide end -->
+          <div class="single-slide">
+            <img src="assets\images\games\slider-1.jpg" alt="image">
+          </div><!-- single-slide end -->
+          <div class="single-slide">
+            <img src="assets\images\games\slider-1.jpg" alt="image">
+          </div><!-- single-slide end -->
+          <div class="single-slide">
+            <img src="assets\images\games\slider-1.jpg" alt="image">
+          </div><!-- single-slide end -->
+        </div><!-- single-game-slider end -->
+      </div>
+    </section>
+    <!-- single game end -->
+
+    <!-- game info start -->
+    <section class="pt-120 pb-120">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="section-header has--bg mb-5">
+              <div class="header-image justify-content-start"><img src="assets\images\elements\header-el-7.png" alt="image"></div>
+              <h2 class="section-title">Game Info</h2>
+            </div>
+            <p>Game Type</p>
+            <h3 class="text-uppercase mt-3">Video 3D Games</h3>
+            <p class="mt-4">Compatible with</p>
+            <div class="game-compatible mt-3">
+              <div class="single">
+                <i class="fab fa-apple"></i>
+                <h6 class="caption">iOS</h6>
+              </div><!-- single end -->
+              <div class="single">
+                <i class="fab fa-android"></i>
+                <h6 class="caption">Android</h6>
+              </div><!-- single end -->
+              <div class="single">
+                <i class="fab fa-windows"></i>
+                <h6 class="caption">Windows</h6>
+              </div><!-- single end -->
+              <div class="single">
+                <i class="far fa-hdd"></i>
+                <h6 class="caption">Mac OS</h6>
+              </div><!-- single end -->
+            </div><!-- game-compatible end -->
+            <p class="mt-5">Language</p>
+            <div class="game-language mt-3">
+              <div class="single">
+                <img src="assets\images\elements\lang-1.png" alt="image">
+                <span class="text-white">English</span>
+              </div>
+              <div class="single">
+                <img src="assets\images\elements\lang-2.png" alt="image">
+                <span class="text-white">Chinese</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 mt-lg-0 mt-4">
+            <div class="game-info-thumb">
+              <img src="assets\images\elements\mobile.png" alt="game-info-image">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- game info end -->
+
+    <!-- trailer section start -->
+    <section class="pt-120 pb-120 position-relative">
+      <div class="bg-el"><img src="assets\images\bg\video.jpg" alt="image"></div>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-5">
+            <div class="section-header text-center has--bg">
+              <div class="header-image"><img src="assets\images\elements\header-el.png" alt="image"></div>
+              <h2 class="section-title">Game Trailers</h2>
+            </div>
+          </div>
+        </div><!-- row end -->
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="trailer">
+              <div class="trailer__thumb">
+                <img src="assets\images\bg\video-thumb.jpg" alt="image">
+                <a href="https://www.youtube.com/embed/ssrNcwxALS4" data-rel="lightcase:myCollection" class="play-icon"><i class="fas fa-play"></i></a>
+              </div>
+              <div class="cartoon"><img src="assets\images\elements\trailer-cartoon.png" alt="image"></div>
+            </div><!-- trailer end -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- trailer section end -->
+
+    <!-- others games section start -->
+    <section class="pb-120">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="view-all-header">
+              <h2 class="title">Other games you might like:</h2>
+              <a href="#0" class="link">All Games</a>
+            </div>
+          </div>
+        </div><!-- row end -->
+        <div class="row mt-50 mb-none-30 justify-content-center">
+          <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-30">
+            <div class="game-small-card">
+              <div class="game-small-card__thumb">
+                <img src="assets\images\games\md-1.jpg" alt="image">
+              </div>
+              <div class="game-small-card__content">
+                <h6><a href="#0">Tree Of Fortune</a></h6>
+              </div>
+            </div><!-- game-small-card end -->
+          </div>
+          <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-30">
+            <div class="game-small-card">
+              <div class="game-small-card__thumb">
+                <img src="assets\images\games\md-2.jpg" alt="image">
+              </div>
+              <div class="game-small-card__content">
+                <h6><a href="#0">Wild Fireworks</a></h6>
+              </div>
+            </div><!-- game-small-card end -->
+          </div>
+          <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-30">
+            <div class="game-small-card">
+              <div class="game-small-card__thumb">
+                <img src="assets\images\games\md-3.jpg" alt="image">
+              </div>
+              <div class="game-small-card__content">
+                <h6><a href="#0">Candy Burst</a></h6>
+              </div>
+            </div><!-- game-small-card end -->
+          </div>
+          <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-30">
+            <div class="game-small-card">
+              <div class="game-small-card__thumb">
+                <img src="assets\images\games\md-4.jpg" alt="image">
+              </div>
+              <div class="game-small-card__content">
+                <h6><a href="#0">Dragon Hatch</a></h6>
+              </div>
+            </div><!-- game-small-card end -->
+          </div>
+          <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-30">
+            <div class="game-small-card">
+              <div class="game-small-card__thumb">
+                <img src="assets\images\games\md-5.jpg" alt="image">
+              </div>
+              <div class="game-small-card__content">
+                <h6><a href="#0">Ninja vs Samurai</a></h6>
+              </div>
+            </div><!-- game-small-card end -->
+          </div>
+          <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-30">
+            <div class="game-small-card">
+              <div class="game-small-card__thumb">
+                <img src="assets\images\games\md-6.jpg" alt="image">
+              </div>
+              <div class="game-small-card__content">
+                <h6><a href="#0">Wild Inferno</a></h6>
+              </div>
+            </div><!-- game-small-card end -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- others games section end -->
+
+
+      <!-- footer section start  -->
+  <footer class="footer-section bg_img" data-background="assets/images/elements/footer.png">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="subscribe-area">
+            <div class="obj"><img src="assets\images\elements\subscribe.png" alt="image"></div>
+            <div class="subscribe-content">
+              <h2 class="title">Find Out About New Games!</h2>
+              <p>Subscribe to get updated on future game releases</p>
+              <p>
+              <form class="subscribe-form">
+                <input type="email" name="subscribe_email" id="subscribe_email" placeholder="Enter Your Email">
+                <button type="submit">Subscribe</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row footer-top mb-none-50">
+        <div class="col-lg-3 col-sm-6 mb-50">
+          <div class="footer-widget">
+            <h3 class="footer-widget__title">ABOUT</h3>
+            <ul class="short-links">
+              <li><a href="#0">About Us</a></li>
+              <li><a href="#0">Contact Us</a></li>
+              <li><a href="#0">Customer Reviews</a></li>
+              <li><a href="#0">Privacy Policy</a></li>
+            </ul>
+          </div><!-- footer-widget end -->
+        </div>
+        <div class="col-lg-3 col-sm-6 mb-50">
+          <div class="footer-widget">
+            <h3 class="footer-widget__title">MY ACCOUNT</h3>
+            <ul class="short-links">
+              <li><a href="#0">Manage Your Account</a></li>
+              <li><a href="#0">Account Varification</a></li>
+              <li><a href="#0">Safety & Security</a></li>
+            </ul>
+          </div><!-- footer-widget end -->
+        </div>
+        <div class="col-lg-3 col-sm-6 mb-50">
+          <div class="footer-widget">
+            <h3 class="footer-widget__title">HELP CENTER</h3>
+            <ul class="short-links">
+              <li><a href="#0">Help centre</a></li>
+              <li><a href="#0">FAQ</a></li>
+              <li><a href="#0">Quick Start Guide</a></li>
+              <li><a href="#0">Tutorials</a></li>
+            </ul>
+          </div><!-- footer-widget end -->
+        </div>
+        <div class="col-lg-3 col-sm-6 mb-50">
+          <div class="footer-widget">
+            <h3 class="footer-widget__title">LEGAL INFO</h3>
+            <ul class="short-links">
+              <li><a href="#0">Security</a></li>
+              <li><a href="#0">Terms of Service</a></li>
+              <li><a href="#0">Become Affiliate</a></li>
+              <li><a href="#0">Complaints Policy</a></li>
+            </ul>
+          </div><!-- footer-widget end -->
+        </div>
+      </div><!-- footer-top end -->
+      <div class="row footer-bottom align-items-center">
+        <div class="col-lg-7 col-md-6 text-md-left text-center">
+          <p class="copy-right-text">Copyright © 2020.All Rights Reserved By <a href="#0">OPHELA</a></p>
+        </div>
+        <div class="col-lg-5 col-md-6 mt-md-0 mt-3">
+          <ul class="social-links justify-content-md-end justify-content-center">
+            <li><a href="#0"><i class="lab la-facebook-f"></i></a></li>
+            <li><a href="#0"><i class="lab la-twitter"></i></a></li>
+            <li><a href="#0"><i class="lab la-pinterest-p"></i></a></li>
+            <li><a href="#0"><i class="lab la-google-plus"></i></a></li>
+            <li><a href="#0"><i class="lab la-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- footer section end -->
+  </div>
+  <!-- page-wrapper end -->
+  <!-- jQuery library -->
+  <script src="assets\js\vendor\jquery-3.5.1.min.js"></script>
+  <!-- bootstrap js -->
+  <script src="assets\js\vendor\bootstrap.bundle.min.js"></script>
+  <!-- custom select js -->
+  <script src="assets\js\vendor\jquery.nice-select.min.js"></script>
+  <!-- lightcase js -->
+  <script src="assets\js\vendor\lightcase.js"></script>
+  <!-- wow js -->
+  <script src="assets\js\vendor\wow.min.js"></script>
+  <!-- slick slider js -->
+  <script src="assets\js\vendor\slick.min.js"></script>
+  <script src="assets\js\vendor\TweenMax.min.js"></script>
+  <!-- contact js -->
+  <script src="assets\js\contact.js"></script>
+  <script src="http://rexbd.net/html/sporcia/demo/assets/js/vendor/jquery.paroller.min.js"></script>
+  <!-- custom js -->
+  <script src="assets\js\app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+{% extends 'BACK/base.html.twig' %}
+
+{% block body %} 
+<div class="container">
+<br><br>
+    <h2 class="text-center mt-5 mb-3">Create new Produit</h2>
+    <div class="card">
+    
+            <div class="card-header">
+                <a class="btn btn-outline-info float-right" href="{{ path('app_produit_index') }}"> 
+                    Voir Tous Produits
+                </a>
+            </div>
+<div class="card-body">
+
+    {{ include('produit/_form.html.twig') }}
+</div>
+</div>
+    <a href="{{ path('app_produit_index') }}">Back To List</a>
+{% endblock %}

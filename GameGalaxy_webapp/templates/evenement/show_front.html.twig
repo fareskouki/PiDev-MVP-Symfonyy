@@ -1,0 +1,144 @@
+{% extends 'FRONT/base.html.twig' %}
+
+{% block title %}
+	Détails de l'évènement
+{% endblock %}
+
+{% block body %}
+	<!-- inner-hero start -->
+	<div class="inner-hero bg_img style--two" data-background={{ asset(image_dir ~ 'elements/inner-hero-2.jpg') }}>
+		<div class="shape position-absolute"><img src={{ asset(image_dir ~ 'elements/inner-hero/shape.png') }} alt="image"></div>
+	</div>
+	<!-- inner-hero end -->
+
+	<!-- blog details section start -->
+	<section class="blog-details pb-120">
+		<div class="container">
+			<div class="row justify-content-center border-bottom pb-5">
+				<div class="col-12">
+					<ul class="page-list">
+						<li>
+							<a href="index.html">Acceuil</a>
+						</li>
+						<li>Evenements</li>
+						<li>{{ evenement.nom }}</li>
+					</ul>
+					<div class="blog-details__header">
+						<h2 class="blog-details__title">{{ evenement.nom }}</h2>
+
+						<div class="row mt-4">
+							<div class="col-lg-6">
+								<ul class="meta-post">
+									<li>
+
+										<a href="#0">{{ evenement.date ? evenement.date|date("M d, Y") : '' }}</a>
+									</li>
+									<li>
+										<a href="#0">Durée:
+											{{ evenement.duree }}
+											heure(s).</a>
+									</li>
+									<li>
+										<a href="#0">Places restantes:
+											{{ evenement.capacite }}
+											places.</a>
+									</li>
+									<li>
+										<a href="#0">Type:
+											{{ evenement.type }}
+										</a>
+									</li>
+								</ul>
+								
+							</div>
+							<div class="col-lg-6">
+								<ul class="social-links">
+
+									<li>
+										<span>Partager :</span>
+									</li>
+									<li>
+										<div class="share42init" data-url="https://gamegalaxy.tn/evenement/front/{{ evenement.id }}" data-title="{{ evenement.nom }}"></div>
+										<script type="text/javascript" src="share42.js"></script>
+									</li>
+
+
+								</ul>
+							</div>
+							<div>
+
+								{{form_start(form)}}
+
+
+								{% if form_errors(form) %}
+									<div class="cmn-btn wow fadeInUp">
+										{{ form_errors(form) }}
+									</div>
+								{% else %}
+									<div>
+										<button type="submit" class="submit-btn" href="/evenement/front/{{evenement.id}}">Réserver</button>
+									</div>
+
+								{% endif %}
+								{{form_end(form)}}
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-10 mt-50">
+						<div class="blog-details__content">
+							<h3 class="blog-details__sub-title">Détails de l'évènement</h3>
+							<p>{{evenement.description}}
+							</p>
+							<blockquote>
+								<p>“Elevez votre Gaming au niveau supérieur.”</p>
+							</blockquote>
+							
+							<div class="img-holder text-center mt-5 mb-5">
+								<img src="{{ asset(uploads_dir ~ evenement.image) }}" alt="image">
+								<p>{{evenement.nom}}, là vous devez être.</p>
+							</div>
+							<h3 class="blog-details__sub-title mt-5">Ce qui vous attend à "{{evenement.nom}}"</h3>
+							<div class="video-thumb mt-5 mb-5">
+								<img src="{{ asset(image_dir ~ 'blog/bb2.jpg') }}" alt="image">
+								<a href="https://youtu.be/ssrNcwxALS4" data-rel="lightcase:myCollection" class="video-thumb__icon">
+									<i class="fas fa-play"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-10 mt-50">
+					<div class="blog-details__content">
+						<h3 class="blog-details__sub-title">Informations</h3>
+						<p>Pour annuler votre réservation, veuillez remplir une réclamation à ce sujet.</p>
+					</div>
+				</div>
+			</div>
+			<!-- row end -->
+			<div class="row justify-content-center mt-50">
+				<div
+					class="col-lg-10">
+					<!-- <div class="author">
+												  <div class="author__thumb">
+												    <img src="assets\images\blog\author-b.png" alt="image">
+												  </div>
+												  <div class="author__content">
+												    <span class="top-title">About Author</span>
+												    <h2 class="name mb-3">Clark Howell</h2>
+												    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui phasellus elit euismod lobortis amet, lectus. Lacus nulla nunc sapien quam.</p>
+												    <ul class="social-links justify-content-start mt-4">
+												      <li><a href="#0"><i class="fab fa-facebook-f"></i></a></li>
+												      <li><a href="#0"><i class="fab fa-twitter"></i></a></li>
+												      <li><a href="#0"><i class="fab fa-instagram"></i></a></li>
+												      <li><a href="#0"><i class="fab fa-pinterest-p"></i></a></li>
+												      <li><a href="#0"><i class="fab fa-google-plus-g"></i></a></li>
+												    </ul>
+												  </div> 
+												</div><!-- author end -->
+					-->
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- blog details section end -->
+{% endblock %}

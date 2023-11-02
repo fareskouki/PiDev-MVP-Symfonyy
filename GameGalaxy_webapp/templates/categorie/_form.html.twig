@@ -1,0 +1,20 @@
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+
+    <div class="form-group"><h3>Nom Categorie</h3>
+        {{ form_widget(form.nom_categorie, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.nom_categorie,{'attr':{'class':'text-danger'}}) }}
+
+    </div>
+    <div class="form-group"><h3>Etat(1 Si catégorie avec restréction d'age )</h3>
+        {{ form_widget(form.etat, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.etat,{'attr':{'class':'text-danger'}}) }}
+
+    </div>
+    <div class="form-group"><h3>Type  </h3>
+        {{ form_widget(form.type, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.type,{'attr':{'class':'text-danger'}}) }}
+
+    </div>
+
+    <button class="btn {{ button_color|default('btn-outline-primary') }}  mt-3">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

@@ -1,0 +1,59 @@
+{% extends 'FRONT/base.html.twig' %}
+{% block title %}Blogs
+			{% endblock %}
+{% block body %}
+<section class="pt-120 pb-120">
+  <div class="container">
+      <div class="row mb-none-40">
+          {% for blog in blogs %}
+              <div class="col-lg-4 mb-4">
+                  <div class="card">
+                      <img class="card-img-top" src="{{ asset('uploads/' ~ blog.image) }}" alt="{{ blog.image }}">
+                      <div class="card-body">
+                          <h5 class="card-title">{{ blog.title }}</h5>
+                          <p class="card-text">{{ blog.content }}</p>
+                          <a href="{{ path('app_front_blog_show', {id: blog.id}) }}" class="btn btn-primary">Consulter détail</a>
+                          
+                          <a href="{{ path('generate_pdf', {'id': blog.id}) }}">
+                              <button class="btn btn-danger">
+                                  <i class="bi bi-file-earmark-pdf-fill"></i> Generate PDF
+                              </button>
+                          </a>
+                          <a class="btn btn-link like-button" href="/blog/{{blog.id}}/like">
+                              <i class="far fa-heart"></i>
+                              <span class="like-count">{{ blog.likes }}</span>
+                          </a>
+                          <button>
+                              <div class="share42init" data-url="https://gamegalaxy.tn/showblogfront/{{ blog.id }}" data-title="{{ blog.title }}">
+                                  <i class="bi bi-share-fill"></i>
+                              </div>
+                              <script type="text/javascript" src="share42.js"></script>
+                          </button>
+                          <div class="card-footer">
+                            <small class="text-muted">{{ blog.createdAt | date('Y-m-d') }}</small>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+          {% endfor %}
+      </div>
+  </div>
+</section>
+
+  <script>
+    const generatePdfBtns = document.querySelectorAll('.btn-danger');
+    generatePdfBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const blogId = btn.dataset.blogId;
+            window.location.href = "{{ path('generate_pdf', {'id': 'blogId'}) }}".replace('blogId', blogId);
+        });
+    });
+</script>
+
+{% endblock %}
+
+
+
+
+
+

@@ -1,0 +1,28 @@
+{% extends 'FRONT/base.html.twig' %}
+
+{% block title %}Réinitialisation de mot de passe{% endblock %}
+
+{% block body %}
+   
+
+    <h1>Réinitialisation de mot de passe</h1>
+
+   <br>
+   <br>
+   <br>
+   
+   
+      {{form_start(RequestPass)}}
+      {{form_row(RequestPass.email)}}
+      <button type="submit" class="btn btn-primary">Enovyer</button>
+            {{form_end(RequestPass)}}
+
+
+   
+
+   
+   
+
+   
+   
+{% endblock %}

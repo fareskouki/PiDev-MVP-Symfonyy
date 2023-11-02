@@ -1,0 +1,17 @@
+
+{% extends 'BACK/base.html.twig'  %}
+{% block title %}New User{% endblock %}
+{% block body %}
+   <div id="layoutSidenav_content">
+	<main>
+		<div class="card mb-4">
+			<div class="card-header">
+				<i class="fas fa-table me-1"></i>
+				Nouveau Administrateur
+			</div>
+    {{ include('user/_form.html.twig') }}
+    <a href="{{ path('app_user_index') }}">back to list</a>
+{% endblock %}
+
+
+

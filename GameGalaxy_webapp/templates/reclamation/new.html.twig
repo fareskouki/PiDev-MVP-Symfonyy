@@ -1,0 +1,109 @@
+{% extends 'FRONT/base.html.twig' %}
+
+{% block title %}
+	Reclamations
+{% endblock %}
+
+{% block body %}
+	<div id="layoutSidenav_content">
+		<main>
+			<div id="layoutAuthentication">
+				{# <div id="layoutAuthentication_content"> #}
+					<main>
+						<div class="container">
+							<div class="row justify-content-center">
+								<div class="col-lg-7">
+									<div class="card shadow-lg border-0 rounded-lg mt-5">
+										<div class="card-header">
+											<h3 class="text-center font-weight-light my-4">Créer Reclamtion</h3>
+										</div>
+										<div class="card-body">
+											{{form_start(form,{'attr':{'novalidate':'novalidate'}})}}
+											<div hidden>
+												{{form_widget(form.commande,{'attr':{'class':'form-control','value' : GET["orderId"]}})}}
+											</div>
+											<div class="form-group">
+												<div class="form-group">
+													<div class="form-group" class="form-floating mb-3 mb-md-0" > 
+													<a >Titre</a>
+													{{form_widget(form.titre_rec,{'attr':{'class':'form-control'}})}}
+													{% if form_errors(form.titre_rec) %}
+													
+														{{form_errors(form.titre_rec,{'attr':{'class':'form-control',}})}}
+														
+													</div>
+													{% endif %}
+												</div>
+                                                <div class="form-floating mb-3">
+													<a for="inputEmail">Type</a>
+													{{form_widget(form.type_rec,{'attr':{'class':'form-control'}})}}
+													{% if form_errors(form.type_rec) %}
+												
+												{{form_errors(form.type_rec,{'attr':{'class':'form-control'}})}}
+												
+											</div>
+											{% endif %}
+												<div class="form-group">
+													<div class="form-floating">
+														<a>Date et Heure</a>
+														{{form_widget(form.date_rec,{'attr':{'class':'form-control'}})}}
+													{% if form_errors(form.date_rec) %}
+														{{form_errors(form.date_rec,{'attr':{'class':'form-control datetimepicker'}})}}
+														
+													</div>
+													{% endif %}
+												</div>
+											</div>
+											<br><br><br><br>
+											<div class="form-group">
+												<div class="col-md-6">
+													<div class="form-floating mb-3 mb-md-0">
+															<a for="inputFirstName">Contenu</a>
+															{{form_widget(form.contenu_rec,{'attr':{'class':'form-control'}})}}
+													{% if form_errors(form.contenu_rec) %}
+														{{form_errors(form.contenu_rec,{'attr':{'class':'form-control'}})}}
+														
+													</div>
+													{% endif %}
+												</div>
+												<div class="form-group">
+													<div class="form-floating">
+													<a for="inputLastName">Statut</a>
+													<a for="inputLastName">1 : New</a>
+													<a for="inputLastName">2 : Fermee</a>
+													<a for="inputLastName">3 : En cours</a>
+														{{form_widget(form.statut_rec,{'attr':{'class':'form-control'}})}}
+													{% if form_errors(form.statut_rec) %}
+													
+														{{form_errors(form.statut_rec,{'attr':{'class':'form-control'}})}}
+														
+													</div>
+													{% endif %}
+												</div>
+													<div class="form-group">
+													<div class="form-floating">
+													<a for="inputLastName">User Name</a>
+														{{form_widget(form.username,{'attr':{'class':'form-control'}})}}
+													{% if form_errors(form.username) %}
+													
+														{{form_errors(form.username,{'attr':{'class':'form-control'}})}}
+														
+													</div>
+													{% endif %}
+												</div>
+											</div>
+                                            <div class="mt-4 mb-0">
+												<div class="d-grid" type="button" class="btn btn-primary">
+													{{ include('reclamation/_form.html.twig', {'button_label': 'Valider'}, {'href':"{{ path('app_reclamation_index') }}" },{'class':'btn btn-success '}) }}
+												
+												</div>
+											</div>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</main>
+				{# </div> #}
+			</main>
+		{% endblock %}

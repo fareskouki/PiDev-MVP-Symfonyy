@@ -1,0 +1,43 @@
+{% extends 'BACK/base.html.twig' %}
+{% block body %}
+    <h1>Mon profil</h1>
+    <p>Bienvenue {{ user.Pseudo }}!</p>
+    <div id="layoutSidenav_content">
+	<main>
+		<div class="card-body">
+			<table class="table">
+				<tbody>            
+        <tr>
+            <th>Email</th>
+            <td>{{ app.user.email }}</td>
+        </tr>    
+        <tr>
+            <th>Password</th>
+            <td>{{ app.user.password }}</td>
+        </tr>
+        <tr>
+            <th>Pseudo</th>
+            <td>{{ app.user.Pseudo }}</td>
+        </tr>
+        <tr>
+            <th>Addresse</th>
+            <td>{{ app.user.addresse }}</td>
+        </tr>
+        <tr>
+            <th>Date_naissance</th>
+            <td>{{ app.user.dateNaissance ? app.user.dateNaissance|date('Y-m-d') : '' }}</td>
+        </tr>
+				</tbody>
+			</table>
+
+				<div class="row mb-3">
+					<div class="col-md-6">
+						<a class="btn btn-success btn-block" href="{{ path('app_mod_pro') }}">Modifier</a>
+					</div>
+					<div class="col-md-6 my-3">
+						<a class="btn btn-primary btn-block " href="{{ path('app_user_index') }}">Retour à la liste</a>
+					</div>
+				</div>
+			    </div>
+
+{% endblock %}

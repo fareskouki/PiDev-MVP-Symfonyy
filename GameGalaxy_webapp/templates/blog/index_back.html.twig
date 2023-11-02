@@ -1,0 +1,68 @@
+{% set Title = 'Blogs' %}
+{% extends 'BACK/base.html.twig' %}
+
+{% block body %}
+	{% if not blogs is empty %}
+		<div class="card-header">
+			<i class="fas fa-table me-1"></i>
+			{{ Title }}
+		</div>
+		<div class="card-body">
+			<table id="datatablesSimple">
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Content</th>
+						<th>Date de création</th>
+						<th>Likes</th>
+						<th>image</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<th>Title</th>
+					<th>Content</th>
+					<th>Date de création</th>
+					<th>Likes</th>
+					<th>image</th>
+					<th>Actions</th>
+				</tfoot>
+				<tbody>
+					{% for blog in blogs %}
+						<tr>
+							<td>{{ blog.title }}</td>
+							<td>{{ blog.content }}</td>
+
+							<td>{{ blog.createdAt |date('Y-m-d')}}</td>
+							<td>
+								{{ blog.likes }}
+							</td>
+							<td><img style="width:250x;height:100px;" src="{{ asset(uploads_dir ~ blog.image) }}" alt="{{ blog.image }}" class="img-thumbnail"></td>
+							<td>
+								<div class="mt-4 mb-0">
+									<div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+										
+										<a href="{{ path('app_blog_edit', {'id': blog.id}) }}" class="btn btn-secondary">Modifier</a>
+										{{ include('blog/_delete_form.html.twig') }}
+
+									</div>
+								</div>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			<a class="btn btn-success" href="{{ path('app_blog_new') }}">Créer un blog</a>
+		</div>
+	{% else %}
+		<div class="card-header">
+			<div class="alert alert-danger" role="alert">
+				<h3>Il n'y a pas encore de blogs.</h3>
+			</div>
+			<a class="btn btn-success" href="{{ path('app_blog_new') }}">Créer un blog</a>
+			<div class="small">
+				<a href="{{ path('app_back_blog_index') }}">Retour à la liste</a>
+			</div>
+		</div>
+	{% endif %}
+{% endblock %}

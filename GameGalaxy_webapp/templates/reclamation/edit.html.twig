@@ -1,0 +1,92 @@
+{% extends 'BACK/base.html.twig' %}
+
+{% block title %}
+	Modifier la reclamation
+{% endblock %}
+
+{% block body %}
+	<div id="layoutSidenav_content">
+		<main>
+			<div id="layoutAuthentication">
+				<div id="layoutAuthentication_content">
+					<main>
+						<div class="container">
+							<div class="row justify-content-center">
+								<div class="col-lg-7">
+									<div class="card shadow-lg border-0 rounded-lg mt-5">
+										<div class="card-header">
+											<h3 class="text-center font-weight-light my-4">Modifier la reclamation</h3>
+										</div>
+										<div class="card-body">
+											{{form_start(form,{'attr':{'novalidate':'novalidate'}})}}
+											<div class="row mb-3">
+												
+												<div class="col-md-6">
+													<div class="form-floating mb-3" >
+											        	{{form_widget(form.titre_rec,{'attr':{'class':'form-control'}})}}
+												        <label for="inputEmail">Titre</label>
+											        </div>
+                                                    <div class="form-floating mb-3 mb-md-0">
+														{{form_widget(form.type_rec,{'attr':{'class':'form-control'}})}}
+														<label for="inputFirstName">Type</label>
+													</div>
+                                                    <div class="form-floating">
+														{{form_widget(form.date_rec,{'attr':{'class':'form-control datetimepicker'}})}}
+														<label for="inputLastName">Date et Heure</label>
+													</div>
+												</div>
+											</div>
+											
+											<div class="row mb-3">
+												<div class="col-md-6">
+													<div class="form-floating mb-3 mb-md-0">
+														{{form_widget(form.contenu_rec,{'attr':{'class':'form-control'}})}}
+														<label for="inputFirstName">contenu</label>
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-floating">
+														{{form_widget(form.statut_rec,{'attr':{'class':'form-control'}})}}
+														<label for="inputLastName">statut_rec</label>
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-floating">
+														{{form_widget(form.username,{'attr':{'class':'form-control'}})}}
+														<label for="inputLastName">username</label>
+													</div>
+												</div>
+											</div>
+
+											<div class="row mb-3">
+												<div class="col-md-6">
+													
+												</div>
+											</div>
+											<div class="mt-4 mb-0">
+												<div class="d-grid">
+													{{ include('reclamation/_form.html.twig', {'button_label': 'Modifier'},{'class':'btn btn-success '}) }}
+												</div>
+											</div>
+											<div class="mt-4 mb-0">
+												<div class="d-grid" >
+													{{ include('reclamation/_delete_form.html.twig') }}
+												</div>
+											</div>
+
+
+											{{form_end(form)}}
+										</div>
+										<div class="card-footer text-center py-3">
+											<div class="small">
+												<a type="button" class="btn btn-primary" href="{{ path('app_reclamation_index') }}">Retour à la liste</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</main>
+				</div>
+			</main>
+		{% endblock %}

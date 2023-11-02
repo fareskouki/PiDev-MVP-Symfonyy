@@ -1,0 +1,72 @@
+{% extends 'BACK/base.html.twig' %}
+
+{% block title %}
+	Reponse
+{% endblock %}
+
+{% block body %}
+	<div id="layoutSidenav_content">
+		<main>
+			<div id="layoutAuthentication">
+				<div id="layoutAuthentication_content">
+					<main>
+						<div class="container">
+							<div class="row justify-content-center">
+								<div class="col-lg-7">
+									<div class="card shadow-lg border-0 rounded-lg mt-5">
+										<div class="card-header">
+											<h3 class="text-center font-weight-light my-4">Créer une Reponse</h3>
+										</div>
+										<div class="card-body">
+											{{form_start(form,{'attr':{'novalidate':'novalidate'}})}}
+												<div class="col-md-6">
+													<div class="form-floating">
+													{% if form_errors(form.date_rep) %}
+														{{form_errors(form.date_rep,{'attr':{'class':'form-control'}})}}
+														{{form_widget(form.date_rep,{'attr':{'class':'form-control datetimepicker'}})}}
+														
+														<label for="inputLastName">Date et Heure</label>
+														{% endif %}
+													</div>
+												</div>
+											</div>
+											
+											<div class="row mb-3">
+												<div class="col-md-6">
+													<div class="form-floating mb-3 mb-md-0">
+													{% if form_errors(form.contenu_rep) %}
+														{{form_errors(form.contenu_rep,{'attr':{'class':'form-control'}})}}
+														{{form_widget(form.contenu_rep,{'attr':{'class':'form-control'}})}}
+														<label for="inputFirstName">Contenu</label>
+														{% endif %}
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-floating">
+													{% if form_errors(form.status_rep) %}
+														{{form_errors(form.status_rep,{'attr':{'class':'form-control'}})}}
+														{{form_widget(form.status_rep,{'attr':{'class':'form-control'}})}}
+														<label for="inputLastName">Status</label>
+														{% endif %}
+													</div>
+												</div>
+											</div>
+                                            <div class="mt-4 mb-0">
+												<div class="d-grid">
+													{{ include('repons/_form.html.twig', {'button_label': 'Valider'}, {'class':'btn btn-primary '}) }}
+												</div>
+											</div>
+										<div class="card-footer text-center py-3">
+											<div class="small">
+												<a a type="button" class="btn btn-primary" href="{{ path('app_repons_index') }}">Retour à la liste</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</main>
+				</div>
+			</main>
+		{% endblock %}
+

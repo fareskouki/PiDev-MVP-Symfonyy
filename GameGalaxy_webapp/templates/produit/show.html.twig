@@ -1,0 +1,67 @@
+{% extends 'Back/base.html.twig' %}
+{% block body %}
+<div id="layoutSidenav_content">
+		<main>
+			<div id="layoutAuthentication">
+				<div id="layoutAuthentication_content">
+					<main>
+						<div class="container">
+							<div class="row justify-content-center">
+								<div class="col-lg-7">
+									<div class="card shadow-lg border-0 rounded-lg mt-5">
+										<div class="card-header">       
+<div class="container">
+
+        <h2 class="text-center mt-5 mb-3">Voir Produit</h2>
+        <div class="card">
+            <div class="card-header">
+                <a class="btn btn-outline-info float-right" href="{{ path('app_produit_index') }}"> 
+                    Voir Tous produits
+                </a>
+            </div>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ produit.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom_produit</th>
+                <td>{{ produit.nomProduit }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ produit.prix }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ produit.description }}</td>
+            </tr>
+            <tr>
+                <th>Stock</th>
+                <td>{{ produit.stock }}</td>
+            </tr>
+            <tr>
+                <th>Rating</th>
+                <td>{{ produit.rating }}</td>
+            </tr>
+            <tr>
+                <th>Img</th>
+                <td><img  src="{{asset( uploads_dir ~ produit.img)}}" alt="photo"  width="300" height="200"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_produit_index') }}">Retour à la liste</a>
+
+    <a href="{{ path('app_produit_edit', {'id': produit.id}) }}">Edit</a>
+</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</main>
+				</div>
+    
+{% endblock %}

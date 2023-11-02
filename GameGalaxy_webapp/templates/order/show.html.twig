@@ -1,0 +1,92 @@
+{% extends 'FRONT/base.html.twig' %}
+
+{% block title %}Order{% endblock %}
+
+{% block body %}
+    <section class="bg-light p-3">
+    </section>
+    <h1>Order</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th style="color: #8984dc">Id</th>
+                <td style="color: #8984dc">{{ order.id }}</td>
+            </tr>
+            <tr>
+                <th style="color: #8984dc">Status</th>
+                <td style="color: #8984dc">{{ order.status }}</td>
+            </tr>
+            <tr>
+                <th style="color: #8984dc">Total</th>
+                <td style="color: #8984dc">{{ order.total }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Items</h2>
+
+    <table class="table">
+        <thead>
+        <th style="color: #8984dc">ID</th>
+        <th style="color: #8984dc">Nom</th>
+        <th style="color: #8984dc">Prix</th>
+        <th style="color: #8984dc">Quantite</th>
+        </thead>
+        <tbody>
+        {% for item in order.items  %}
+        <tr>
+            <td style="color: #8984dc">{{ item.Product.id }}</td>
+            <td style="color: #8984dc">{{ item.product.nomProduit }}</td>
+            <td style="color: #8984dc">{{ item.product.prix }}</td>
+            <td style="color: #8984dc">{{ item.quantity }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <table class="table">
+        <thead>
+        <th style="color: #8984dc">ID</th>
+        <th style="color: #8984dc">Session</th>
+        <th style="color: #8984dc">Total</th>
+        <th style="color: #8984dc">Status</th>
+        </thead>
+        <tbody>
+        {% if order.Payment %}
+            <tr>
+                <td style="color: #8984dc">{{ order.Payment.id }}</td>
+                <td style="color: #8984dc">{{ order.Payment.sessionId }}</td>
+                <td style="color: #8984dc">{{ order.Payment.total }}</td>
+                <td style="color: #8984dc">{{ order.Payment.status }}</td>
+            </tr>
+        {% endif %}
+        </tbody>
+    </table>
+
+    <h2>Reclamations</h2>
+    <table class="table">
+        <thead>
+        <th style="color: #8984dc">Titre</th>
+        <th style="color: #8984dc">Type</th>
+        <th style="color: #8984dc">Date</th>
+        </thead>
+        <tbody>
+        {% for item in order.reclamations  %}
+        <tr>
+            <td style="color: #8984dc"><a href="{{ path('app_reclamation_show', {'id' : item.id }) }}">{{ item.titreRec }}</a></td>
+            <td style="color: #8984dc">{{ item.typeRec }}</td>
+            <td style="color: #8984dc">{{ item.dateRec ? item.dateRec|date('Y-m-d') : '' }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    <a style="color: #8984dc" href="{{ path('app_order_index') }}">retour a la liste</a>
+
+    <a style="color: #8984dc" href="{{ path('app_order_edit', {'id': order.id}) }}">modifer</a>
+    {% if order.status == "Pending" %}
+    <a style="color: #8984dc" href="{{ path('pay_order', {'Num': order.id,'amount' : order.total}) }}">payer</a>
+    {% endif %}
+    {{ include('order/_delete_form.html.twig') }}
+{% endblock %}

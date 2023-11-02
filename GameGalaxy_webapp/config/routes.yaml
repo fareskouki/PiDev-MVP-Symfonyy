@@ -1,0 +1,23 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+block_user:
+    path: '/users/{id}/block'
+    controller: App\Controller\UserController::blockUser
+    requirements:
+        id: '\d+'
+    methods: [POST]
+
+generate_pdf:
+    path: '/blog/{id}/pdf'
+    controller: App\Controller\PDFController::generatePdf
+
+blog_like:
+    path: '/blog/{id}/like'
+    controller: App\Controller\BlogController::likeBlog
+
+blogdetails:
+    path: /blogdetails/{id}
+    controller: App\Controller\BlogController::blogdetail
+    methods: [GET, POST]

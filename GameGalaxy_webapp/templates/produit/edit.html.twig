@@ -1,0 +1,46 @@
+{% extends 'BACK/base.html.twig' %}
+{% block title %}
+	Modifier le Produit {{ produit.nomProduit }}
+{% endblock %}
+{% block body %}
+<div id="layoutSidenav_content">
+		<main>
+			<div id="layoutAuthentication">
+				<div id="layoutAuthentication_content">
+					<main>
+						<div class="container">
+							<div class="row justify-content-center">
+								<div class="col-lg-7">
+									<div class="card shadow-lg border-0 rounded-lg mt-5">
+										<div class="card-header">       
+<div class="container ">
+<br>
+    <h2 class="text-center mt-5 mb-3">Modifier le Produit</h2>
+    <div class="card">
+            <div class="card-header">
+                <a class="btn btn-outline-info float-right" href="{{ path('app_produit_index') }}"> 
+                    Voir tous les produits
+                </a>
+            </div>
+                <table class="table">
+        <tbody>
+            
+                <div class="card-body">
+                    {{ include('produit/_form.html.twig', {'button_label': 'Update' , 'button_color': 'btn-outline-success'}) }}
+                    
+                </div>
+        </div>
+
+    <a href="{{ path('app_produit_index') }}">Retour à la liste</a>
+</tbody>
+    </table>
+</div></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</main>
+				</div>
+
+{% endblock %}
+

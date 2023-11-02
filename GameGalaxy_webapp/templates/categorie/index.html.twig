@@ -1,0 +1,64 @@
+{% extends 'Back/base.html.twig' %}
+
+{% block title %}
+	Catégories
+{% endblock %}
+
+{% block body %}
+	<br>
+	<div class="container"><br><br>
+		<h2 class="text-center mt-5 mb-3">GameGalaxy Manager de Categorie</h2>
+
+		<div class="card">
+			<div class="card-header">
+				<a class="btn btn-outline-primary" href="{{ path('app_categorie_new') }}">
+					Ajouter noveau Categorie
+				</a>
+				<a class="btn btn-outline-primary" href="{{ path('app_categorie_tri_par_nom') }}">
+					Trier par nom</a>
+
+			</div>
+			<div class="container m-20">
+				<div class="card-body">
+
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Nom Categorie</th>
+								<th>Etat</th>
+								<th>Type</th>
+
+							</tr>
+						</thead>
+						<tbody>
+							{% for categorie in categories %}
+								<tr>
+									<td>{{ categorie.id }}</td>
+									<td>{{ categorie.getNomCategorie }}</td>
+									<td>{{ categorie.etat }}</td>
+									<td>{{ categorie.type }}</td>
+
+									<td>
+										<div class="mt-4 mb-0">
+											<div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+												<a href="{{ path('app_categorie_show', {'id': categorie.id}) }}" class="btn btn-primary">Détails</a>
+												<a href="{{ path('app_categorie_edit', {'id': categorie.id}) }}" class="btn btn-secondary">Modifier</a>
+												{{ include('categorie/_delete_form.html.twig') }}
+
+											</div>
+
+
+										</div>
+									</td>
+								</tr>
+							</form>
+						</tbody>
+					</td>
+				</tr>
+
+			{% endfor %}
+
+		</tbody>
+	</table>
+</div></div></div>{% endblock %}

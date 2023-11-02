@@ -1,0 +1,7 @@
+<h1>Réclamation {{ reclamation.id }}</h1>
+<p><b> TITRE : </b>{{ reclamation.titreRec }}</p>
+<p><b> TYPE : </b>{{ reclamation.typeRec }}</p>
+<p><b> DATE : </b>{{ reclamation.dateRec ? reclamation.dateRec|date('Y-m-d') : '' }}</p>
+<p><b> CONTENU : </b>{{ reclamation.contenuRec }}</p>
+<p><b> STATUT : </b>{{ reclamation.statutRec }}</p>
+<p><b> USER : </b>{{ reclamation.username }}</p>

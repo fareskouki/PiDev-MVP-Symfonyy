@@ -1,0 +1,142 @@
+{% set Title = 'Evenements' %}
+{% extends 'BACK/base.html.twig' %}
+
+{% block title %}
+	Détails de l'évènement
+{% endblock %}
+
+{% block body %}
+
+	<div class="card-body">
+		<table class="table">
+			<tbody>
+				<tr>
+					<th>Id</th>
+					<td>{{ evenement.id }}</td>
+				</tr>
+				<tr>
+					<th>Nom</th>
+					<td>{{ evenement.nom }}</td>
+				</tr>
+				<tr>
+					<th>Date</th>
+					<td>{{ evenement.date ? evenement.date|date('Y-m-d H:i:s') : '' }}</td>
+				</tr>
+				<tr>
+					<th>Description</th>
+					<td>{{ evenement.description }}</td>
+				</tr>
+				<tr>
+					<th>Duree</th>
+					<td>{{ evenement.duree }}</td>
+				</tr>
+				<tr>
+					<th>Capacite</th>
+					<td>{{ evenement.capacite }}</td>
+				</tr>
+				<tr>
+					<th>Type</th>
+					<td>{{ evenement.type }}</td>
+				</tr>
+				<tr>
+					<th>Image</th>
+					<td>
+
+						{% if evenement.image %}
+							<td>
+								<style>
+									.cover {
+
+										object-fit: cover;
+
+										width: 100px;
+
+										margin: 0;
+
+										height: 100px;
+
+									}
+								</style>
+								<p>
+									{{evenement.image}}
+								</p>
+								<img src={{ asset(uploads_dir ~ evenement.image) }} class="cover">
+							</td>
+
+						{% else %}
+							<td>
+								NULL
+							</td>
+						{% endif %}
+
+					</td>
+				</tr>
+
+			</tbody>
+		</table>
+		<div class="row mb-3">
+			<div class="col-md-6">
+				<a class="btn btn-primary btn-block" href="{{ path('app_evenement_edit', {'id': evenement.id}) }}">Modifier</a>
+			</div>
+			<div class="col-md-6">
+				{{ include('evenement/_delete_form.html.twig', {'class':'btn btn-primary btn-block'}) }}
+			</div>
+			<div class="col-md-6">
+				<a href="{{ path('app_evenement_index') }}">Retour à la liste</a>
+			</div>
+		</div>
+	</div>
+	
+		<div class="card mb-4">
+			<div class="card-header">
+				<i class="fas fa-table me-1"></i>
+				Réservations pour l'évènement "{{ evenement.nom }}"
+			</div>
+{% if reservations is null %}
+			<div class="card-body">
+				<table id="datatablesSimple">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>ID Membre</th>
+							<th>ID Evenement</th>
+							<th>Date</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tfoot>
+						<tr>
+							<th>Id</th>
+							<th>ID Membre</th>
+							<th>ID Evenement</th>
+							<th>Date</th>
+							<th>Actions</th>
+						</tr>
+					</tfoot>
+					<tbody>
+						{% for reservation in reservations %}
+							<tr>
+								<td>{{ reservation.id }}</td>
+								<td>{{ reservation.getIdMembre() }}</td>
+								<td>{{ reservation.getIdEvenement() }}</td>
+								<td>{{ reservation.date ? reservation.date|date('Y-m-d H:i:s') : '' }}</td>
+								<td>
+									<a href="{{ path('app_reservation_show', {'id': reservation.id}) }}">Détails</a>
+									<a href="{{ path('app_reservation_edit', {'id': reservation.id}) }}">Modifier</a>
+								</td>
+							</tr>
+
+						{% endfor %}
+					</tbody>
+				</table>
+
+			</div>
+		{% else %}
+			<div class="card-body">
+				<h3>
+					Cet évènement n'a pas encore de réservations.
+				</h3>
+			</div>
+		{% endif %}
+
+	{% endblock %}
